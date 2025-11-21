@@ -1,0 +1,11 @@
+:root {
+    --tg-bg: #fff;
+    --tg-text: #000;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: var(--tg-bg);
+    color: var(--tg-text);
+}
