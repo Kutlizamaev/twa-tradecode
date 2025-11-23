@@ -1,6 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { RootState } from '../store/store'
-import type { AuthResponse, DashboardResponse } from './types'
+import type {
+    AuthResponse,
+    DashboardResponse,
+    RenderingsResponse,
+    SubscriptionsResponse,
+} from './types'
 
 export const baseApi = createApi({
     reducerPath: 'api',
@@ -17,7 +22,7 @@ export const baseApi = createApi({
             return headers
         },
     }),
-    tagTypes: ['User', 'Session', 'Dashboard'],
+    tagTypes: ['User', 'Session', 'Dashboard', 'Renderings', 'Subscriptions'],
     endpoints: (build) => ({
         authTelegram: build.mutation<AuthResponse, { initData: string }>({
             query: (body) => ({
@@ -25,13 +30,32 @@ export const baseApi = createApi({
                 method: 'POST',
                 body,
             }),
-            invalidatesTags: ['User', 'Session', 'Dashboard'],
+            invalidatesTags: [
+                'User',
+                'Session',
+                'Dashboard',
+                'Renderings',
+                'Subscriptions',
+            ],
         }),
         getDashboard: build.query<DashboardResponse, void>({
             query: () => '/dashboard',
             providesTags: ['Dashboard'],
         }),
+        getRenderings: build.query<RenderingsResponse, void>({
+            query: () => '/renderings',
+            providesTags: ['Renderings'],
+        }),
+        getSubscriptions: build.query<SubscriptionsResponse, void>({
+            query: () => '/subscriptions',
+            providesTags: ['Subscriptions'],
+        }),
     }),
 })
 
-export const { useAuthTelegramMutation, useGetDashboardQuery } = baseApi
+export const {
+    useAuthTelegramMutation,
+    useGetDashboardQuery,
+    useGetRenderingsQuery,
+    useGetSubscriptionsQuery,
+} = baseApi
