@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { RootState } from '../store/store'
-import type { AuthResponse } from './types'
+import type { AuthResponse, DashboardResponse } from './types'
 
 export const baseApi = createApi({
     reducerPath: 'api',
@@ -17,7 +17,7 @@ export const baseApi = createApi({
             return headers
         },
     }),
-    tagTypes: ['User', 'Session'],
+    tagTypes: ['User', 'Session', 'Dashboard'],
     endpoints: (build) => ({
         authTelegram: build.mutation<AuthResponse, { initData: string }>({
             query: (body) => ({
@@ -25,9 +25,13 @@ export const baseApi = createApi({
                 method: 'POST',
                 body,
             }),
-            invalidatesTags: ['User', 'Session'],
+            invalidatesTags: ['User', 'Session', 'Dashboard'],
+        }),
+        getDashboard: build.query<DashboardResponse, void>({
+            query: () => '/dashboard',
+            providesTags: ['Dashboard'],
         }),
     }),
 })
 
-export const { useAuthTelegramMutation } = baseApi
+export const { useAuthTelegramMutation, useGetDashboardQuery } = baseApi

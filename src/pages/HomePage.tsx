@@ -1,47 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useAuthTelegramMutation } from '../api/baseApi'
+import { useAuthTelegramMutation, useGetDashboardQuery } from '../api/baseApi'
 import { setAuth } from '../store/sessionSlice'
 import type { RootState } from '../store/store'
 import { getTelegramInitData } from '../telegram/getInitData'
-import { useMemo, useState } from 'react'
-
-type EnvInfo = {
-    hasWindow: boolean
-    hasTelegram: boolean
-    hasWebApp: boolean
-    initDataSnippet: string
-}
+import { useState } from 'react'
 
 export default function HomePage() {
     const dispatch = useDispatch()
     const session = useSelector((state: RootState) => state.session)
 
-    const [authTelegram, { isLoading, error }] = useAuthTelegramMutation()
+    const [authTelegram, { isLoading: isAuthLoading, error: authError }] =
+        useAuthTelegramMutation()
+
     const [manualInitData, setManualInitData] = useState('')
 
-    // 🔍 Диагностика окружения Telegram — считаем один раз при первом рендере
-    const envInfo: EnvInfo = useMemo(() => {
-        if (typeof window === 'undefined') {
-            return {
-                hasWindow: false,
-                hasTelegram: false,
-                hasWebApp: false,
-                initDataSnippet: '',
-            }
-        }
-
-        const tg = (window as any).Telegram
-
-        return {
-            hasWindow: true,
-            hasTelegram: !!tg,
-            hasWebApp: !!tg?.WebApp,
-            initDataSnippet:
-                typeof tg?.WebApp?.initData === 'string'
-                    ? tg.WebApp.initData.slice(0, 80)
-                    : '',
-        }
-    }, [])
+    const {
+        data: dashboard,
+        isLoading: isDashboardLoading,
+        error: dashboardError,
+    } = useGetDashboardQuery(undefined, {
+        skip: !session.token,
+    })
 
     const handleAuth = async () => {
         const realInitData = getTelegramInitData()
@@ -49,7 +28,7 @@ export default function HomePage() {
 
         if (!initDataToSend) {
             alert(
-                'InitData не найдено. Либо открой приложение в Telegram Mini App, либо введи initData вручную.'
+                'InitData не найдено. Открой Mini App в Telegram или введи initData вручную.'
             )
             return
         }
@@ -68,50 +47,86 @@ export default function HomePage() {
         <div style={{ padding: 16 }}>
             <h1>Home</h1>
 
-            <button onClick={handleAuth} disabled={isLoading}>
-                {isLoading
+            <button onClick={handleAuth} disabled={isAuthLoading}>
+                {isAuthLoading
                     ? 'Авторизация...'
-                    : 'Авторизоваться через Telegram initData'}
+                    : 'Авторизоваться через Telegram'}
             </button>
 
-            {error && <div style={{ color: 'red' }}>Ошибка авторизации</div>}
+            {authError && (
+                <div style={{ color: 'red' }}>Ошибка авторизации</div>
+            )}
 
-            {/* Блок диагностики окружения */}
-            <div
-                style={{
-                    marginTop: 16,
-                    padding: 12,
-                    border: '1px solid #ccc',
-                    borderRadius: 8,
-                    maxWidth: 600,
-                    fontSize: 14,
-                }}
-            >
-                <h3>Telegram env debug</h3>
-                <div>hasWindow: {String(envInfo.hasWindow)}</div>
-                <div>hasTelegram: {String(envInfo.hasTelegram)}</div>
-                <div>hasWebApp: {String(envInfo.hasWebApp)}</div>
-                <div>
-                    initDataSnippet:{' '}
-                    {envInfo.initDataSnippet
-                        ? envInfo.initDataSnippet
-                        : '(пусто или нет строки)'}
-                </div>
-            </div>
-
-            {/* Для локальной отладки вне Telegram */}
             <div style={{ marginTop: 16 }}>
                 <h3>Ручной initData (для браузера)</h3>
                 <textarea
                     rows={3}
                     style={{ width: '100%', maxWidth: 500 }}
-                    placeholder="Вставь сюда initData или строку типа telegramId=12345;username=vasya"
+                    placeholder="Вставь сюда initData"
                     value={manualInitData}
                     onChange={(e) => setManualInitData(e.target.value)}
                 />
             </div>
 
-            <div style={{ marginTop: 16 }}>
+            <div style={{ marginTop: 24 }}>
+                <h2>Dashboard</h2>
+
+                {!session.token && (
+                    <div>Сначала авторизуйся, чтобы загрузить dashboard</div>
+                )}
+
+                {session.token && isDashboardLoading && (
+                    <div>Загружаем dashboard...</div>
+                )}
+
+                {dashboardError && (
+                    <div style={{ color: 'red' }}>
+                        Ошибка загрузки dashboard
+                    </div>
+                )}
+
+                {dashboard && (
+                    <div style={{ marginTop: 12 }}>
+                        <h3>
+                            Пользователь: {dashboard.user.telegramUsername} (
+                            {dashboard.user.telegramId})
+                        </h3>
+                        <p>
+                            Баланс: {dashboard.balance.amount}{' '}
+                            {dashboard.balance.currency}
+                        </p>
+
+                        <h3>Сервисы</h3>
+                        <ul>
+                            {dashboard.services.map((s) => {
+                                const st = dashboard.stats.find(
+                                    (x) => x.serviceId === s.id
+                                )
+                                return (
+                                    <li key={s.id}>
+                                        <strong>{s.name}</strong> ({s.code})
+                                        <br />
+                                        {s.description}
+                                        {st && (
+                                            <div style={{ fontSize: 12 }}>
+                                                всего: {st.totalSubscriptions},
+                                                активных: {st.activeCount},
+                                                скоро заканчиваются:{' '}
+                                                {st.expiringSoonCount},
+                                                закончились: {st.expiredCount},
+                                                не активированы:{' '}
+                                                {st.notActivatedCount}
+                                            </div>
+                                        )}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                )}
+            </div>
+
+            <div style={{ marginTop: 24 }}>
                 <h2>Session state</h2>
                 <pre>{JSON.stringify(session, null, 2)}</pre>
             </div>

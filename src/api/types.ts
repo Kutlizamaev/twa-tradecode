@@ -12,7 +12,6 @@ export interface AuthResponse {
 }
 
 export interface Balance {
-    id: number
     userId: number
     amount: number
     currency: string
@@ -26,7 +25,6 @@ export interface Service {
 }
 
 export interface ServiceStats {
-    id: number
     serviceId: number
     totalSubscriptions: number
     activeCount: number
@@ -35,7 +33,7 @@ export interface ServiceStats {
     notActivatedCount: number
 }
 
-export interface DashboardData {
+export interface DashboardResponse {
     user: User
     balance: Balance
     services: Service[]
