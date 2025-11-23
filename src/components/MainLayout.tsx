@@ -1,87 +1,14 @@
-import type { ReactNode } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import styles from './MainLayout.module.css'
 
-interface MainLayoutProps {
-    children: ReactNode
-}
-
-export const MainLayout = ({ children }: MainLayoutProps) => {
-    const navigate = useNavigate()
-    const location = useLocation()
-
-    const isActive = (path: string) => location.pathname === path
-
+const MainLayout = () => {
     return (
-        <div
-            style={{
-                minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                background:
-                    'radial-gradient(520.42% 147.82% at 50% -47.82%, #002A07 0%, #00F091 100%)',
-                color: 'white',
-            }}
-        >
-            <div style={{ flex: 1, paddingBottom: 56 }}>{children}</div>
-
-            <nav
-                style={{
-                    position: 'fixed',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: 56,
-                    borderTop: '1px solid #1f2933',
-                    background: '#020617',
-                    display: 'flex',
-                }}
-            >
-                <NavButton
-                    label="Главная"
-                    active={isActive('/')}
-                    onClick={() => navigate('/')}
-                />
-                <NavButton
-                    label="Подписки"
-                    active={isActive('/subscriptions')}
-                    onClick={() => navigate('/subscriptions')}
-                />
-                <NavButton
-                    label="Корзина"
-                    active={isActive('/cart')}
-                    onClick={() => navigate('/cart')}
-                />
-                <NavButton
-                    label="Профиль"
-                    active={isActive('/profile')}
-                    onClick={() => navigate('/profile')}
-                />
-            </nav>
+        <div className={styles.root}>
+            <div className={styles.inner}>
+                <Outlet />
+            </div>
         </div>
     )
 }
 
-interface NavButtonProps {
-    label: string
-    active: boolean
-    onClick: () => void
-}
-
-function NavButton({ label, active, onClick }: NavButtonProps) {
-    return (
-        <button
-            onClick={onClick}
-            style={{
-                flex: 1,
-                border: 'none',
-                background: 'transparent',
-                color: active ? '#22c55e' : '#9ca3af',
-                fontSize: 13,
-                fontWeight: active ? 600 : 400,
-                cursor: 'pointer',
-            }}
-        >
-            {label}
-        </button>
-    )
-}
+export default MainLayout

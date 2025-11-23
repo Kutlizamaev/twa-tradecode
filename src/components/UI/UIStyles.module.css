@@ -20,9 +20,9 @@
 
     font-family: 'TikTok Sans';
     font-weight: 900;
-    font-size: 12px;
-    line-height: 80%;
-    letter-spacing: -2%;
+    font-size: var(--fs-xs);
+    line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .balanceValueRow {
@@ -34,26 +34,26 @@
 .balanceCurrency {
     font-family: 'Martian Grotesk';
     font-weight: 500;
-    font-size: 24px;
-    line-height: 80%;
-    letter-spacing: -4%;
+    font-size: var(--fs-lg);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
 }
 
 .balanceValue {
     font-family: 'Martian Grotesk';
     color: black;
     font-weight: 800;
-    font-size: 64px;
-    line-height: 80%;
-    letter-spacing: -3%;
+    font-size: var(--fs-xxl);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
 }
 
 .balanceCents {
     font-family: 'Martian Grotesk';
     font-weight: 500;
-    font-size: 24px;
-    line-height: 80%;
-    letter-spacing: -4%;
+    font-size: var(--fs-lg);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
 }
 
 .balanceButton {
@@ -68,10 +68,9 @@
     font-family: 'TikTok Sans';
     color: #0e1412;
     font-weight: 700;
-    font-style: Black;
-    font-size: 12px;
-    line-height: 80%;
-    letter-spacing: -2%;
+    font-size: var(--fs-xs);
+    line-height: 1;
+    letter-spacing: -0.02em;
     text-align: center;
 }
 

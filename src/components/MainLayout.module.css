@@ -6,15 +6,17 @@
 
 .inner {
     width: 100%;
-    max-width: 430px;
+    max-width: 480px;
     min-height: 100vh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding: 12px 12px 8px;
+    box-sizing: border-box;
+
     background: radial-gradient(
         520.42% 147.82% at 50% -47.82%,
         #002a07 0%,
         #00f091 100%
     );
-    padding: 12px 10px 8px;
-    box-sizing: border-box;
 }
