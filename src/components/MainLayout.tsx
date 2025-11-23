@@ -17,14 +17,13 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                 minHeight: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                background: '#020617',
+                background:
+                    'radial-gradient(520.42% 147.82% at 50% -47.82%, #002A07 0%, #00F091 100%)',
                 color: 'white',
             }}
         >
-            {/* Контент страницы */}
             <div style={{ flex: 1, paddingBottom: 56 }}>{children}</div>
 
-            {/* Нижнее меню навигации (как табы) */}
             <nav
                 style={{
                     position: 'fixed',

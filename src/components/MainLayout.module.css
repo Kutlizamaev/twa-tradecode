@@ -1,0 +1,20 @@
+.root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(
+        520.42% 147.82% at 50% -47.82%,
+        #002a07 0%,
+        #00f091 100%
+    );
+    padding: 12px 10px 8px;
+    box-sizing: border-box;
+}

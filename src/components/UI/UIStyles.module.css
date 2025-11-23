@@ -1,0 +1,290 @@
+/* Баланс */
+
+.balanceCard {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 14px 16px 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+
+.balanceTop {
+    margin-bottom: 10px;
+}
+
+.balanceLabel {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.balanceValueRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.balanceCurrency {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.balanceValue {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.balanceCents {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.balanceButton {
+    width: 100%;
+    margin-top: 6px;
+    border: none;
+    border-radius: 999px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #00b54c;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Карточка сервиса */
+
+.serviceCard {
+    background: #caffdf;
+    border-radius: 22px;
+    padding: 12px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.serviceLogo {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #f97316;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.serviceHeaderText {
+    flex: 1;
+}
+
+.serviceTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.serviceTitle {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.serviceDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #22c55e;
+}
+
+.serviceDescription {
+    font-size: 11px;
+    color: #0f172a;
+}
+
+/* Внутренняя белая карточка со статистикой */
+
+.serviceStatsCard {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px 10px 8px;
+    margin-bottom: 8px;
+}
+
+.serviceStatsTitle {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.serviceStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 6px;
+    margin-bottom: 8px;
+}
+
+.serviceStatLabel {
+    display: block;
+    font-size: 10px;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.serviceStatLabelGreen {
+    color: #16a34a;
+}
+
+.serviceStatLabelOrange {
+    color: #ea580c;
+}
+
+.serviceStatValue {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Прогресс-бар */
+
+.serviceProgress {
+    display: flex;
+    gap: 4px;
+}
+
+.serviceProgressBar {
+    height: 3px;
+    border-radius: 999px;
+}
+
+.serviceProgressGreen {
+    flex: 2;
+    background: #16a34a;
+}
+
+.serviceProgressOrange {
+    flex: 1;
+    background: #ea580c;
+}
+
+.serviceProgressGray {
+    flex: 1;
+    background: #e5e7eb;
+}
+
+.serviceButton {
+    width: 100%;
+    border-radius: 999px;
+    border: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* Промо-баннер */
+
+.promoCard {
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #111827, #b45309);
+}
+
+.promoInner {
+    display: flex;
+    padding: 12px 12px 10px;
+    align-items: center;
+    gap: 10px;
+}
+
+.promoText {
+    flex: 1;
+}
+
+.promoTitle {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.promoSubtitle {
+    font-size: 11px;
+    color: #fee2e2;
+    margin-bottom: 6px;
+}
+
+.promoButton {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #f97316;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.promoImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    background: #111827;
+    /* сюда потом можно поставить background-image с картинкой из макета */
+}
+
+/* Нижнее меню */
+
+.bottomNav {
+    padding-top: 6px;
+}
+
+.bottomNavInner {
+    background: #0f172a;
+    border-radius: 999px;
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomNavItem {
+    flex: 1;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 0;
+    gap: 2px;
+    border-radius: 999px;
+    font-size: 10px;
+    color: #cbd5f5;
+}
+
+.bottomNavItemActive {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.bottomNavIcon {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.bottomNavLabel {
+    font-size: 9px;
+}
