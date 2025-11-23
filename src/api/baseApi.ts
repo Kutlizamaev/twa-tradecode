@@ -5,7 +5,7 @@ import type { AuthResponse, DashboardResponse } from './types'
 export const baseApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:4000/',
+        baseUrl: 'https://tradecode-local-server.vercel.app/api',
         prepareHeaders: (headers, { getState }) => {
             const state = getState() as RootState
             const token = state.session.token
