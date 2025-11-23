@@ -21,7 +21,7 @@ export const baseApi = createApi({
     endpoints: (build) => ({
         authTelegram: build.mutation<AuthResponse, { initData: string }>({
             query: (body) => ({
-                url: '/auth/telegram',
+                url: '/auth-telegram',
                 method: 'POST',
                 body,
             }),
