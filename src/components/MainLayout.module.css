@@ -1,19 +1,27 @@
 .root {
     min-height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+/* фиксированная ширина колонки */
 .inner {
     width: 100%;
     min-height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-
     background: radial-gradient(
         520.42% 147.82% at 50% -47.82%,
         #002a07 0%,
         #00f091 100%
     );
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* область, которая скроллится */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
 }

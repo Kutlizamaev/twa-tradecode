@@ -6,7 +6,6 @@
 // import { useState } from 'react'
 
 import BalanceCard from '../../components/UI/BalanceCard'
-import BottomNav from '../../components/UI/BottomNav'
 import PromoCard from '../../components/UI/PromoCard'
 import ServiceCard from '../../components/UI/ServiceCard'
 import styles from './HomePage.module.css'
@@ -76,8 +75,6 @@ export default function HomePage() {
                     />
                 </section>
             </div>
-
-            <BottomNav />
         </div>
     )
 }

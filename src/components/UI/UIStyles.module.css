@@ -268,41 +268,85 @@
 /* Нижнее меню */
 
 .bottomNav {
-    padding-top: 6px;
+    position: fixed;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 24px);
+    max-width: 390px;
+
+    background: #cdf9e7;
+    border-radius: 22px;
+
+    padding: 2px;
+    z-index: 50;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .bottomNavInner {
-    background: #0f172a;
-    border-radius: 999px;
-    padding: 6px 10px;
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    align-items: stretch;
 }
 
+/* Едущий зелёный фон */
+.bottomNavActiveBg {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 0;
+    width: 25%; /* 4 вкладки → 25% */
+    border-radius: 20px;
+    background: #00f091;
+    z-index: 1;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Кнопки поверх */
 .bottomNavItem {
+    position: relative;
+    z-index: 2;
+
     flex: 1;
     border: none;
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px 0;
-    gap: 2px;
-    border-radius: 999px;
+    padding: 6px 0;
+    gap: 4px;
+    border-radius: 20px;
     font-size: 10px;
-    color: #cbd5f5;
+    color: #0e141266;
 }
 
 .bottomNavItemActive {
-    background: #10b981;
-    color: #ffffff;
+    color: #0e1412;
 }
 
 .bottomNavIcon {
-    font-size: 16px;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bottomNavLabel {
-    font-size: 9px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+}
+
+/* Цвет иконок (тянут currentColor) */
+.icon {
+    width: 20px;
+    height: 20px;
+    color: #0e141266;
+}
+
+.iconActive {
+    width: 20px;
+    height: 20px;
+    color: #0e1412;
 }
