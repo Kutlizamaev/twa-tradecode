@@ -1,7 +1,13 @@
 /* Баланс */
 
 .balanceCard {
-    background: #ffffff;
+    background: linear-gradient(0deg, #002a07, #002a07),
+        radial-gradient(
+            520.42% 147.82% at 50% -47.82%,
+            #002a07 0%,
+            #00f091 100%
+        );
+
     border-radius: 22px;
     padding: 14px 16px 12px;
     margin-bottom: 14px;
