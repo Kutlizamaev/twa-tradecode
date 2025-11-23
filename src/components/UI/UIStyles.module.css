@@ -1,17 +1,12 @@
 /* Баланс */
 
 .balanceCard {
-    background: linear-gradient(0deg, #002a07, #002a07),
-        radial-gradient(
-            520.42% 147.82% at 50% -47.82%,
-            #002a07 0%,
-            #00f091 100%
-        );
-
-    border-radius: 22px;
+    background-color: white;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
     padding: 14px 16px 12px;
     margin-bottom: 14px;
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+    width: 100%;
 }
 
 .balanceTop {
@@ -20,11 +15,14 @@
 
 .balanceLabel {
     display: block;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6b7280;
+    color: #0e1412;
     margin-bottom: 6px;
+
+    font-family: 'TikTok Sans';
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 80%;
+    letter-spacing: -2%;
 }
 
 .balanceValueRow {
@@ -34,21 +32,28 @@
 }
 
 .balanceCurrency {
-    font-size: 16px;
-    font-weight: 600;
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 80%;
+    letter-spacing: -4%;
 }
 
 .balanceValue {
     font-family: 'Martian Grotesk';
-    font-size: 64px;
-    color: white;
+    color: black;
     font-weight: 800;
-    letter-spacing: 0.03em;
+    font-size: 64px;
+    line-height: 80%;
+    letter-spacing: -3%;
 }
 
 .balanceCents {
-    font-size: 16px;
-    font-weight: 600;
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 80%;
+    letter-spacing: -4%;
 }
 
 .balanceButton {

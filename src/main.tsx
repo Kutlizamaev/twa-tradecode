@@ -5,6 +5,7 @@ import { store } from './store/store'
 import { App } from './App'
 
 import './styles/fonts.css'
+import './styles/reset.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>

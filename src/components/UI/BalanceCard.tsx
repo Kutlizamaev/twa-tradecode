@@ -4,10 +4,10 @@ const BalanceCard = () => {
     return (
         <section className={styles.balanceCard}>
             <div className={styles.balanceTop}>
-                <span className={styles.balanceLabel}>Текущий баланс</span>
+                <span className={styles.balanceLabel}>ТЕКУЩИЙ БАЛАНС</span>
                 <div className={styles.balanceValueRow}>
                     <span className={styles.balanceCurrency}>$</span>
-                    <span className={styles.balanceValue}>13&nbsp;720</span>
+                    <span className={styles.balanceValue}>13720</span>
                     <span className={styles.balanceCents}>.00</span>
                 </div>
             </div>
