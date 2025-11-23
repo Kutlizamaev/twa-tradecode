@@ -16,7 +16,7 @@
 .balanceLabel {
     display: block;
     color: #0e1412;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 
     font-family: 'TikTok Sans';
     font-weight: 900;
@@ -58,16 +58,21 @@
 
 .balanceButton {
     width: 100%;
-    margin-top: 6px;
+    margin-top: 8px;
     border: none;
-    border-radius: 999px;
-    padding: 9px 12px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    background: #00b54c;
-    color: #ffffff;
+    border-radius: 12px;
+    padding: 16px 32px;
+    background: #00f091;
     cursor: pointer;
+
+    font-family: 'TikTok Sans';
+    color: #0e1412;
+    font-weight: 700;
+    font-style: Black;
+    font-size: 12px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    text-align: center;
 }
 
 /* Карточка сервиса */

@@ -11,7 +11,7 @@ const BalanceCard = () => {
                     <span className={styles.balanceCents}>.00</span>
                 </div>
             </div>
-            <button className={styles.balanceButton}>пополнить</button>
+            <button className={styles.balanceButton}>ПОПОЛНИТЬ</button>
         </section>
     )
 }
