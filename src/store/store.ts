@@ -1,15 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import uiReducer from './uiSlice'
-import cartReducer from './cartSlice'
-import { userApi } from '../api/userApi'
+import { baseApi } from '../api/baseApi'
+import sessionReducer from './sessionSlice'
 
 export const store = configureStore({
     reducer: {
-        ui: uiReducer,
-        cart: cartReducer,
-        [userApi.reducerPath]: userApi.reducer,
+        [baseApi.reducerPath]: baseApi.reducer,
+        session: sessionReducer,
     },
-    middleware: (getDefault) => getDefault().concat(userApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(baseApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>
