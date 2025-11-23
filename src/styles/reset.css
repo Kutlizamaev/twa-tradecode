@@ -8,6 +8,7 @@ html,
 body {
     font-family: inherit;
     height: 100%;
+    width: fit-content;
 }
 
 *:focus {
