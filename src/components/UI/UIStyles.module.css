@@ -39,7 +39,9 @@
 }
 
 .balanceValue {
-    font-size: 32px;
+    font-family: 'Martian Grotesk';
+    font-size: 64px;
+    color: white;
     font-weight: 800;
     letter-spacing: 0.03em;
 }
