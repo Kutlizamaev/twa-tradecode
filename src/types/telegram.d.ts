@@ -4,6 +4,7 @@ interface TelegramWebApp {
     version: string
     platform: string
     ready: () => void
+    openTelegramLink?: (url: string) => void
 }
 
 interface TelegramNamespace {

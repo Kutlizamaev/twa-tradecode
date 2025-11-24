@@ -46,6 +46,7 @@
     font-size: 64px;
     line-height: 80%;
     letter-spacing: -3%;
+    font-variation-settings: 'wdth' 120;
 }
 
 .balanceCents {
@@ -78,7 +79,7 @@
 /* Карточка сервиса */
 
 .serviceCard {
-    background: #caffdf;
+    background: #cdf9e7;
     border-radius: 22px;
     padding: 12px 10px 10px;
     margin-bottom: 10px;
@@ -92,6 +93,7 @@
 }
 
 .serviceLogo {
+    margin: 8px;
 }
 
 .serviceHeaderText {
@@ -106,8 +108,12 @@
 }
 
 .serviceTitle {
-    font-size: 14px;
+    font-family: 'TikTok Sans';
     font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
 }
 
 .serviceDot {
@@ -118,8 +124,14 @@
 }
 
 .serviceDescription {
-    font-size: 11px;
-    color: #0f172a;
+    margin-top: 8px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: -2%;
+    color: #0e1412;
+    max-width: 220px;
 }
 
 /* Внутренняя белая карточка со статистикой */

@@ -3,7 +3,7 @@ import BybitEyeLogo from '../../assets/icons/logo/BybitEyeLogoIcon.svg?react'
 import PDFCheckerLogo from '../../assets/icons/logo/PDFCheckerLogoIcon.svg?react'
 import HTXEyeLogo from '../../assets/icons/logo/HTXEyeLogoIcon.svg?react'
 
-import BBELogo from '../../assets/icons/logo/BybitEyeLogoIcon.png'
+import ServiceQuestionIcon from '../../assets/icons/ui/ServiceQuestionIcon.svg?react'
 
 type ServiceCardProps = {
     name: string
@@ -11,10 +11,11 @@ type ServiceCardProps = {
 
 const services = [
     {
-        name: 'Bybit Eye',
+        name: 'ByBit Eye',
         description: 'Аналитика и контроль сделок на бирже ByBit',
         buttonText: 'Добавить доступы',
         Icon: BybitEyeLogo,
+        telegramPostLink: 'https://t.me/Trade_Code/45',
     },
     {
         name: 'PDF Checker',
@@ -22,31 +23,49 @@ const services = [
             'Проверка документов и писем на подлинность и корректность',
         buttonText: 'Добавить лимиты',
         Icon: PDFCheckerLogo,
+        telegramPostLink: 'https://t.me/Trade_Code/4',
     },
     {
         name: 'HTX Eye',
         description: 'Аналитика и контроль сделок на бирже HTX',
         buttonText: 'Добавить доступы',
         Icon: HTXEyeLogo,
+        telegramPostLink: 'https://t.me/Trade_Code/111',
     },
 ]
 
 const ServiceCard = ({ name }: ServiceCardProps) => {
     const currentServiceCard = services.find((service) => service.name === name)
 
+    const openTelegramPost = (link: string) => {
+        if (window?.Telegram?.WebApp?.openTelegramLink) {
+            window.Telegram.WebApp.openTelegramLink(link)
+        } else {
+            window.open(link, '_blank')
+        }
+    }
+
     return (
         <article className={styles.serviceCard}>
             <header className={styles.serviceHeader}>
                 <div className={styles.serviceLogo}>
                     {currentServiceCard?.Icon && <currentServiceCard.Icon />}
-                    {/* <img src={BBELogo} alt="" /> */}
                 </div>
                 <div className={styles.serviceHeaderText}>
                     <div className={styles.serviceTitleRow}>
                         <h3 className={styles.serviceTitle}>
                             {currentServiceCard?.name}
                         </h3>
-                        <span className={styles.serviceDot} />
+                        <div
+                            onClick={() => {
+                                openTelegramPost(
+                                    currentServiceCard?.telegramPostLink || ''
+                                )
+                            }}
+                            className={styles.questionBtn}
+                        >
+                            <ServiceQuestionIcon />
+                        </div>
                     </div>
                     <p className={styles.serviceDescription}>
                         {currentServiceCard?.description}

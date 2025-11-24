@@ -56,7 +56,7 @@ export default function HomePage() {
                 <section className={styles.section}>
                     <h1 className={styles.sectionTitle}>Сервисы</h1>
 
-                    <ServiceCard name="Bybit Eye" />
+                    <ServiceCard name="ByBit Eye" />
 
                     <ServiceCard name="PDF Checker" />
 
