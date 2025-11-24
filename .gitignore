@@ -26,3 +26,5 @@ server/
 *.sln
 *.sw?
 
+
+.vercel

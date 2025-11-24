@@ -1,8 +1,8 @@
 import styles from './UIStyles.module.css'
-import HomeIcon from '../../assets/icons/HomePageLinkIcon.svg?react'
-import SubcriptionIcon from '../../assets/icons/SubcriptionPageLinkIcon.svg?react'
-import ProfileIcon from '../../assets/icons/ProfilePageLinkIcon.svg?react'
-import CartIcon from '../../assets/icons/CartPageLinkIcon.svg?react'
+import HomeIcon from '../../assets/icons/nav/HomePageLinkIcon.svg?react'
+import SubcriptionIcon from '../../assets/icons/nav/SubcriptionPageLinkIcon.svg?react'
+import ProfileIcon from '../../assets/icons/nav/ProfilePageLinkIcon.svg?react'
+import CartIcon from '../../assets/icons/nav/CartPageLinkIcon.svg?react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const tabs = [

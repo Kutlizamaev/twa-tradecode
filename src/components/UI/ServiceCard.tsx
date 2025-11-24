@@ -1,22 +1,56 @@
 import styles from './UIStyles.module.css'
+import BybitEyeLogo from '../../assets/icons/logo/BybitEyeLogoIcon.svg?react'
+import PDFCheckerLogo from '../../assets/icons/logo/PDFCheckerLogoIcon.svg?react'
+import HTXEyeLogo from '../../assets/icons/logo/HTXEyeLogoIcon.svg?react'
+
+import BBELogo from '../../assets/icons/logo/BybitEyeLogoIcon.png'
 
 type ServiceCardProps = {
     name: string
-    description: string
-    buttonText?: string
 }
 
-const ServiceCard = ({ name, description, buttonText }: ServiceCardProps) => {
+const services = [
+    {
+        name: 'Bybit Eye',
+        description: 'Аналитика и контроль сделок на бирже ByBit',
+        buttonText: 'Добавить доступы',
+        Icon: BybitEyeLogo,
+    },
+    {
+        name: 'PDF Checker',
+        description:
+            'Проверка документов и писем на подлинность и корректность',
+        buttonText: 'Добавить лимиты',
+        Icon: PDFCheckerLogo,
+    },
+    {
+        name: 'HTX Eye',
+        description: 'Аналитика и контроль сделок на бирже HTX',
+        buttonText: 'Добавить доступы',
+        Icon: HTXEyeLogo,
+    },
+]
+
+const ServiceCard = ({ name }: ServiceCardProps) => {
+    const currentServiceCard = services.find((service) => service.name === name)
+
     return (
         <article className={styles.serviceCard}>
             <header className={styles.serviceHeader}>
-                <div className={styles.serviceLogo}>B</div>
+                <div className={styles.serviceLogo}>
+                    {currentServiceCard?.Icon && <currentServiceCard.Icon />}
+                    {/* <img src={BBELogo} alt="" /> */}
+                </div>
                 <div className={styles.serviceHeaderText}>
                     <div className={styles.serviceTitleRow}>
-                        <h3 className={styles.serviceTitle}>{name}</h3>
+                        <h3 className={styles.serviceTitle}>
+                            {currentServiceCard?.name}
+                        </h3>
                         <span className={styles.serviceDot} />
                     </div>
-                    <p className={styles.serviceDescription}>{description}</p>
+                    <p className={styles.serviceDescription}>
+                        {currentServiceCard?.description}
+                    </p>
                 </div>
             </header>
 
@@ -68,7 +102,7 @@ const ServiceCard = ({ name, description, buttonText }: ServiceCardProps) => {
             </div>
 
             <button className={styles.serviceButton}>
-                {buttonText ?? 'Добавить доступы'}
+                {currentServiceCard?.buttonText}
             </button>
         </article>
     )

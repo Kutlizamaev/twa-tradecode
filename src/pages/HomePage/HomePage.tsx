@@ -54,25 +54,15 @@ export default function HomePage() {
                 <BalanceCard />
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>Сервисы</h2>
+                    <h1 className={styles.sectionTitle}>Сервисы</h1>
 
-                    <ServiceCard
-                        name="ByBit Eye"
-                        description="Аналитика и контроль сделок на бирже ByBit."
-                    />
+                    <ServiceCard name="Bybit Eye" />
 
-                    <ServiceCard
-                        name="PDF Checker"
-                        description="Проверка документов и писем на подлинность и корректность."
-                        buttonText="Добавить лимиты"
-                    />
+                    <ServiceCard name="PDF Checker" />
 
                     <PromoCard />
 
-                    <ServiceCard
-                        name="HTX Eye"
-                        description="Аналитика и контроль сделок на бирже HTX."
-                    />
+                    <ServiceCard name="HTX Eye" />
                 </section>
             </div>
         </div>

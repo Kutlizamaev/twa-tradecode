@@ -14,12 +14,14 @@
 /* Секция */
 
 .section {
-    margin-bottom: 12px;
+    margin: 0 16px;
 }
 
 .sectionTitle {
-    font-size: 19px;
+    font-family: 'TikTok Sans';
     font-weight: 700;
-    color: #f9fafb;
-    margin-bottom: 10px;
+    font-size: 32px;
+    line-height: 80%;
+    color: #fff;
+    margin-bottom: 16px;
 }
