@@ -34,6 +34,11 @@ const services = [
     },
 ]
 
+const active = 34
+const ending = 12
+const ended = 12
+const notActivated = 34
+
 const ServiceCard = ({ name }: ServiceCardProps) => {
     const currentServiceCard = services.find((service) => service.name === name)
 
@@ -78,45 +83,72 @@ const ServiceCard = ({ name }: ServiceCardProps) => {
 
                 <div className={styles.serviceStatsGrid}>
                     <div>
-                        <span
-                            className={`${styles.serviceStatLabel} ${styles.serviceStatLabelGreen}`}
-                        >
+                        <span className={styles.serviceStatLabel}>
+                            <div
+                                className={styles.serviceStatsDot}
+                                style={{ background: '#61D977' }}
+                            ></div>
                             Действует
                         </span>
-                        <span className={styles.serviceStatValue}>34</span>
+                        <div className={styles.serviceStatValue}>34</div>
                     </div>
                     <div>
-                        <span
-                            className={`${styles.serviceStatLabel} ${styles.serviceStatLabelOrange}`}
-                        >
+                        <span className={styles.serviceStatLabel}>
+                            <div
+                                className={styles.serviceStatsDot}
+                                style={{ background: '#D99561' }}
+                            ></div>
                             Заканчивается
                         </span>
-                        <span className={styles.serviceStatValue}>12</span>
+                        <div className={styles.serviceStatValue}>12</div>
                     </div>
                     <div>
                         <span className={styles.serviceStatLabel}>
-                            Закончилась
+                            <div
+                                className={styles.serviceStatsDot}
+                                style={{ background: '#D96169' }}
+                            ></div>
+                            Закончились
                         </span>
-                        <span className={styles.serviceStatValue}>12</span>
+                        <div className={styles.serviceStatValue}>12</div>
                     </div>
                     <div>
                         <span className={styles.serviceStatLabel}>
-                            Не активировалась
+                            <div
+                                className={styles.serviceStatsDot}
+                                style={{ background: '#C3C5D9' }}
+                            ></div>
+                            Не активированы
                         </span>
-                        <span className={styles.serviceStatValue}>34</span>
+                        <div className={styles.serviceStatValue}>34</div>
                     </div>
                 </div>
 
                 <div className={styles.serviceProgress}>
-                    <div
-                        className={`${styles.serviceProgressBar} ${styles.serviceProgressGreen}`}
-                    />
-                    <div
-                        className={`${styles.serviceProgressBar} ${styles.serviceProgressOrange}`}
-                    />
-                    <div
-                        className={`${styles.serviceProgressBar} ${styles.serviceProgressGray}`}
-                    />
+                    {active > 0 && (
+                        <div
+                            className={`${styles.serviceProgressBar} ${styles.serviceProgressGreen}`}
+                            style={{ flexGrow: active }}
+                        />
+                    )}
+                    {ending > 0 && (
+                        <div
+                            className={`${styles.serviceProgressBar} ${styles.serviceProgressOrange}`}
+                            style={{ flexGrow: ending }}
+                        />
+                    )}
+                    {ended > 0 && (
+                        <div
+                            className={`${styles.serviceProgressBar} ${styles.serviceProgressRed}`}
+                            style={{ flexGrow: ended }}
+                        />
+                    )}
+                    {notActivated > 0 && (
+                        <div
+                            className={`${styles.serviceProgressBar} ${styles.serviceProgressGray}`}
+                            style={{ flexGrow: notActivated }}
+                        />
+                    )}
                 </div>
             </div>
 

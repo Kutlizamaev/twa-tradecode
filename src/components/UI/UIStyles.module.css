@@ -116,13 +116,6 @@
     font-variation-settings: 'wdth' 120;
 }
 
-.serviceDot {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: #22c55e;
-}
-
 .serviceDescription {
     margin-top: 8px;
     font-family: 'TikTok Sans';
@@ -138,81 +131,99 @@
 
 .serviceStatsCard {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 10px 10px 8px;
+    border-radius: 12px;
+    padding: 24px 16px;
     margin-bottom: 8px;
 }
 
 .serviceStatsTitle {
-    font-size: 12px;
+    font-family: 'TikTok Sans';
     font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
 }
 
 .serviceStatsGrid {
+    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 16px;
-    row-gap: 6px;
+    row-gap: 12px;
     margin-bottom: 8px;
 }
 
+.serviceStatsDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+}
+
 .serviceStatLabel {
-    display: block;
-    font-size: 10px;
-    color: #6b7280;
-    margin-bottom: 2px;
-}
-
-.serviceStatLabelGreen {
-    color: #16a34a;
-}
-
-.serviceStatLabelOrange {
-    color: #ea580c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
 }
 
 .serviceStatValue {
-    font-size: 13px;
+    margin-top: 8px;
+    font-family: 'TikTok Sans';
     font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
 }
 
 /* Прогресс-бар */
 
 .serviceProgress {
+    margin-top: 16px;
     display: flex;
-    gap: 4px;
+    border-radius: 100px;
 }
 
 .serviceProgressBar {
     height: 3px;
-    border-radius: 999px;
+    flex-basis: 0;
 }
 
 .serviceProgressGreen {
-    flex: 2;
-    background: #16a34a;
+    background: #61d977;
 }
 
 .serviceProgressOrange {
-    flex: 1;
-    background: #ea580c;
+    background: #d99561;
+}
+
+.serviceProgressRed {
+    background: #d96169;
 }
 
 .serviceProgressGray {
-    flex: 1;
-    background: #e5e7eb;
+    background: #c3c5d9;
 }
 
 .serviceButton {
     width: 100%;
-    border-radius: 999px;
+    border-radius: 12px;
     border: none;
-    padding: 8px 12px;
-    font-size: 12px;
-    font-weight: 600;
+    padding: 16px 32px;
     background: #ffffff;
     cursor: pointer;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    text-align: center;
 }
 
 /* Промо-баннер */
