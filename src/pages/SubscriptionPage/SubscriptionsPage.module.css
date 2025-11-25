@@ -131,7 +131,7 @@
 }
 
 .serviceBodyOpen {
-    max-height: 800px;
+    max-height: 3000px;
     transform: translateY(0);
 }
 
@@ -142,7 +142,7 @@
 }
 
 .opening {
-    transition: max-height 0.6s ease-in-out, opacity 0.3s ease,
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease,
         padding-top 0.25s ease, padding-bottom 0.25s ease;
 }
 

@@ -5,28 +5,22 @@ import CheckMarkGreenIcon from '../../assets/icons/ui/CheckMarkGreenIcon.svg'
 import CheckMarkRedIcon from '../../assets/icons/ui/CheckMarkRedIcon.svg'
 import DropdownIcon from '../../assets/icons/ui/DropdownIcon.svg'
 
-const BODY_CLOSE_DURATION = 350 // как в .closing (0.35s)
-const BODY_OPEN_DURATION = 600 // как в .opening (0.6s)
-const HEADER_RADIUS_DURATION = 250 // длительность анимации border-radius
+const BODY_CLOSE_DURATION = 350
+const HEADER_RADIUS_DURATION = 250
 
 export const SubscriptionsPage = () => {
-    // body открыт/закрыт
     const [isBybitOpen, setIsBybitOpen] = useState(true)
     const [isPdfOpen, setIsPdfOpen] = useState(true)
 
-    // body анимация закрытия (для класса .closing)
     const [isClosingBybit, setIsClosingBybit] = useState(false)
     const [isClosingPdf, setIsClosingPdf] = useState(false)
 
-    // header форма (углы): открыт = нижние углы прямые
     const [isBybitHeaderOpen, setIsBybitHeaderOpen] = useState(true)
     const [isPdfHeaderOpen, setIsPdfHeaderOpen] = useState(true)
 
-    // header: анимация закрытия (углы становятся круглыми)
     const [isBybitHeaderClosing, setIsBybitHeaderClosing] = useState(false)
     const [isPdfHeaderClosing, setIsPdfHeaderClosing] = useState(false)
 
-    // header: анимация открытия (углы становятся прямыми)
     const [isBybitHeaderOpening, setIsBybitHeaderOpening] = useState(false)
     const [isPdfHeaderOpening, setIsPdfHeaderOpening] = useState(false)
 
