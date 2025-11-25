@@ -6,20 +6,22 @@ import styles from './HomePage.module.css'
 export default function HomePage() {
     return (
         <div className={styles.page}>
-            <div className={styles.scroll}>
-                <BalanceCard />
+            <div className={styles.pageInner}>
+                <div className={styles.scroll}>
+                    <BalanceCard />
 
-                <section className={styles.section}>
-                    <h1 className={styles.sectionTitle}>Сервисы</h1>
+                    <section className={styles.section}>
+                        <h1 className={styles.sectionTitle}>Сервисы</h1>
 
-                    <ServiceCard name="ByBit Eye" />
+                        <ServiceCard name="ByBit Eye" />
 
-                    <ServiceCard name="PDF Checker" />
+                        <ServiceCard name="PDF Checker" />
 
-                    <PromoCard />
+                        <PromoCard />
 
-                    <ServiceCard name="HTX Eye" />
-                </section>
+                        <ServiceCard name="HTX Eye" />
+                    </section>
+                </div>
             </div>
         </div>
     )

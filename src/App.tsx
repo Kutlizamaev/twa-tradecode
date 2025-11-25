@@ -3,7 +3,7 @@ import React from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './components/MainLayout'
 import HomePage from './pages/HomePage/HomePage'
-import { SubscriptionsPage } from './pages/SubscriptionsPage'
+import { SubscriptionsPage } from './pages/SubscriptionPage/SubscriptionsPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { CartPage } from './pages/CartPage'
 

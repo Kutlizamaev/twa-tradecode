@@ -21,6 +21,8 @@ const BottomNav = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
+    const isSubscriptionsPage = location.pathname === '/subscriptions'
+
     const activeIndex =
         tabs.findIndex((tab) =>
             tab.path === '/'
@@ -29,7 +31,13 @@ const BottomNav = () => {
         ) || 0
 
     return (
-        <nav className={styles.bottomNav}>
+        <nav
+            className={
+                isSubscriptionsPage
+                    ? styles.subscriptionPageBottomNav
+                    : styles.bottomNav
+            }
+        >
             <div className={styles.bottomNavInner}>
                 <div
                     className={styles.bottomNavActiveBg}
