@@ -1,7 +1,7 @@
 /* Баланс */
 
 .balanceCard {
-    background-color: white;
+    background-color: #cdf9e7;
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
     padding: 14px 16px 12px;
@@ -229,10 +229,7 @@
 /* Промо-баннер */
 
 .promoCard {
-    border-radius: 22px;
-    overflow: hidden;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #111827, #b45309);
 }
 
 .promoInner {

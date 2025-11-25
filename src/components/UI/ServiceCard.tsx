@@ -1,7 +1,7 @@
 import styles from './UIStyles.module.css'
-import BybitEyeLogo from '../../assets/icons/logo/BybitEyeLogoIcon.svg?react'
-import PDFCheckerLogo from '../../assets/icons/logo/PDFCheckerLogoIcon.svg?react'
-import HTXEyeLogo from '../../assets/icons/logo/HTXEyeLogoIcon.svg?react'
+import BybitEyeLogo from '../../assets/icons/logo/BybitEyeLogoIcon.svg'
+import PDFCheckerLogo from '../../assets/icons/logo/PDFCheckerLogoIcon.svg'
+import HTXEyeLogo from '../../assets/icons/logo/HTXEyeLogoIcon.svg'
 
 import ServiceQuestionIcon from '../../assets/icons/ui/ServiceQuestionIcon.svg?react'
 
@@ -54,7 +54,10 @@ const ServiceCard = ({ name }: ServiceCardProps) => {
         <article className={styles.serviceCard}>
             <header className={styles.serviceHeader}>
                 <div className={styles.serviceLogo}>
-                    {currentServiceCard?.Icon && <currentServiceCard.Icon />}
+                    <img
+                        src={currentServiceCard?.Icon}
+                        alt={currentServiceCard?.name}
+                    />
                 </div>
                 <div className={styles.serviceHeaderText}>
                     <div className={styles.serviceTitleRow}>
