@@ -230,49 +230,7 @@
 
 .promoCard {
     margin-bottom: 10px;
-}
-
-.promoInner {
-    display: flex;
-    padding: 12px 12px 10px;
-    align-items: center;
-    gap: 10px;
-}
-
-.promoText {
-    flex: 1;
-}
-
-.promoTitle {
-    font-size: 14px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 4px;
-}
-
-.promoSubtitle {
-    font-size: 11px;
-    color: #fee2e2;
-    margin-bottom: 6px;
-}
-
-.promoButton {
-    border-radius: 999px;
-    border: none;
-    padding: 6px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    background: #f97316;
-    color: #ffffff;
     cursor: pointer;
-}
-
-.promoImage {
-    width: 70px;
-    height: 70px;
-    border-radius: 16px;
-    background: #111827;
-    /* сюда потом можно поставить background-image с картинкой из макета */
 }
 
 /* Нижнее меню */
