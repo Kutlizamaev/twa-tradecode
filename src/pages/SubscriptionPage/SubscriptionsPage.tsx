@@ -9,6 +9,9 @@ export const SubscriptionsPage = () => {
     const [isBybitOpen, setIsBybitOpen] = useState(true)
     const [isPdfOpen, setIsPdfOpen] = useState(true)
 
+    const [isClosingBybit, setIsClosingBybit] = useState(false)
+    const [isClosingPdf, setIsClosingPdf] = useState(false)
+
     return (
         <div className={styles.page}>
             <div className={styles.pageInner}>
@@ -29,6 +32,10 @@ export const SubscriptionsPage = () => {
                         <header
                             className={`${styles.serviceHeader} ${
                                 isBybitOpen ? styles.serviceHeaderIsOpen : ''
+                            } ${
+                                isClosingBybit
+                                    ? styles.serviceHeaderClosing
+                                    : ''
                             }`}
                         >
                             <span className={styles.serviceName}>
@@ -39,7 +46,18 @@ export const SubscriptionsPage = () => {
                                 className={`${styles.serviceToggle} ${
                                     isBybitOpen ? styles.serviceToggleOpen : ''
                                 }`}
-                                onClick={() => setIsBybitOpen((prev) => !prev)}
+                                onClick={() => {
+                                    if (isBybitOpen) {
+                                        setIsClosingBybit(true)
+                                        setIsBybitOpen(false)
+                                        setTimeout(
+                                            () => setIsClosingBybit(false),
+                                            300
+                                        )
+                                    } else {
+                                        setIsBybitOpen(true)
+                                    }
+                                }}
                             >
                                 <span className={styles.serviceToggleIcon}>
                                     <img src={DropdownIcon} alt="" />
@@ -52,6 +70,8 @@ export const SubscriptionsPage = () => {
                                 isBybitOpen
                                     ? styles.serviceBodyOpen
                                     : styles.serviceBodyClosed
+                            } ${
+                                isClosingBybit ? styles.closing : styles.opening
                             }`}
                         >
                             <article className={styles.subscriptionCard}>
@@ -264,6 +284,8 @@ export const SubscriptionsPage = () => {
                         <header
                             className={`${styles.serviceHeader} ${
                                 isPdfOpen ? styles.serviceHeaderIsOpen : ''
+                            } ${
+                                isClosingPdf ? styles.serviceHeaderClosing : ''
                             }`}
                         >
                             <span className={styles.serviceName}>
@@ -274,11 +296,18 @@ export const SubscriptionsPage = () => {
                                 className={`${styles.serviceToggle} ${
                                     isPdfOpen ? styles.serviceToggleOpen : ''
                                 }`}
-                                aria-label={
-                                    isPdfOpen ? 'Свернуть' : 'Развернуть'
-                                }
-                                aria-expanded={isPdfOpen}
-                                onClick={() => setIsPdfOpen((prev) => !prev)}
+                                onClick={() => {
+                                    if (isPdfOpen) {
+                                        setIsClosingPdf(true)
+                                        setIsPdfOpen(false)
+                                        setTimeout(
+                                            () => setIsClosingPdf(false),
+                                            300
+                                        )
+                                    } else {
+                                        setIsPdfOpen(true)
+                                    }
+                                }}
                             >
                                 <span className={styles.serviceToggleIcon}>
                                     <img src={DropdownIcon} alt="" />
@@ -291,6 +320,8 @@ export const SubscriptionsPage = () => {
                                 isPdfOpen
                                     ? styles.serviceBodyOpen
                                     : styles.serviceBodyClosed
+                            } ${
+                                isClosingPdf ? styles.closing : styles.opening
                             }`}
                         >
                             <article className={styles.subscriptionCard}>
