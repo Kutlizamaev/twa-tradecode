@@ -79,7 +79,11 @@
 }
 
 .serviceHeaderClosing {
-    transition: border-radius 2s ease;
+    transition: border-radius 0.25s ease;
+}
+
+.serviceHeaderOpening {
+    transition: border-radius 0.25s ease;
 }
 
 .serviceHeaderIsOpen {

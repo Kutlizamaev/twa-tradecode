@@ -5,12 +5,86 @@ import CheckMarkGreenIcon from '../../assets/icons/ui/CheckMarkGreenIcon.svg'
 import CheckMarkRedIcon from '../../assets/icons/ui/CheckMarkRedIcon.svg'
 import DropdownIcon from '../../assets/icons/ui/DropdownIcon.svg'
 
+const BODY_CLOSE_DURATION = 350 // как в .closing (0.35s)
+const BODY_OPEN_DURATION = 600 // как в .opening (0.6s)
+const HEADER_RADIUS_DURATION = 250 // длительность анимации border-radius
+
 export const SubscriptionsPage = () => {
+    // body открыт/закрыт
     const [isBybitOpen, setIsBybitOpen] = useState(true)
     const [isPdfOpen, setIsPdfOpen] = useState(true)
 
+    // body анимация закрытия (для класса .closing)
     const [isClosingBybit, setIsClosingBybit] = useState(false)
     const [isClosingPdf, setIsClosingPdf] = useState(false)
+
+    // header форма (углы): открыт = нижние углы прямые
+    const [isBybitHeaderOpen, setIsBybitHeaderOpen] = useState(true)
+    const [isPdfHeaderOpen, setIsPdfHeaderOpen] = useState(true)
+
+    // header: анимация закрытия (углы становятся круглыми)
+    const [isBybitHeaderClosing, setIsBybitHeaderClosing] = useState(false)
+    const [isPdfHeaderClosing, setIsPdfHeaderClosing] = useState(false)
+
+    // header: анимация открытия (углы становятся прямыми)
+    const [isBybitHeaderOpening, setIsBybitHeaderOpening] = useState(false)
+    const [isPdfHeaderOpening, setIsPdfHeaderOpening] = useState(false)
+
+    const handleToggleBybit = () => {
+        if (isBybitOpen) {
+            setIsClosingBybit(true)
+            setIsBybitOpen(false)
+
+            setTimeout(() => {
+                setIsClosingBybit(false)
+
+                setIsBybitHeaderClosing(true)
+                setIsBybitHeaderOpen(false)
+
+                setTimeout(() => {
+                    setIsBybitHeaderClosing(false)
+                }, HEADER_RADIUS_DURATION)
+            }, BODY_CLOSE_DURATION)
+        } else {
+            setIsBybitHeaderOpening(true)
+            setIsBybitHeaderOpen(true)
+
+            setTimeout(() => {
+                setIsBybitHeaderOpening(false)
+
+                setIsBybitOpen(true)
+                setIsClosingBybit(false)
+            }, HEADER_RADIUS_DURATION)
+        }
+    }
+
+    const handleTogglePdf = () => {
+        if (isPdfOpen) {
+            setIsClosingPdf(true)
+            setIsPdfOpen(false)
+
+            setTimeout(() => {
+                setIsClosingPdf(false)
+
+                setIsPdfHeaderClosing(true)
+                setIsPdfHeaderOpen(false)
+
+                setTimeout(() => {
+                    setIsPdfHeaderClosing(false)
+                }, HEADER_RADIUS_DURATION)
+            }, BODY_CLOSE_DURATION)
+        } else {
+            setIsPdfHeaderOpening(true)
+            setIsPdfHeaderOpen(true)
+
+            setTimeout(() => {
+                setIsPdfHeaderOpening(false)
+
+                setIsPdfOpen(true)
+                setIsClosingPdf(false)
+            }, HEADER_RADIUS_DURATION)
+        }
+    }
 
     return (
         <div className={styles.page}>
@@ -27,14 +101,19 @@ export const SubscriptionsPage = () => {
                 </div>
 
                 <div className={styles.content}>
-                    {/* ByBit Eye */}
                     <section className={styles.serviceSection}>
                         <header
                             className={`${styles.serviceHeader} ${
-                                isBybitOpen ? styles.serviceHeaderIsOpen : ''
+                                isBybitHeaderOpen
+                                    ? styles.serviceHeaderIsOpen
+                                    : ''
                             } ${
-                                isClosingBybit
+                                isBybitHeaderClosing
                                     ? styles.serviceHeaderClosing
+                                    : ''
+                            } ${
+                                isBybitHeaderOpening
+                                    ? styles.serviceHeaderOpening
                                     : ''
                             }`}
                         >
@@ -46,18 +125,7 @@ export const SubscriptionsPage = () => {
                                 className={`${styles.serviceToggle} ${
                                     isBybitOpen ? styles.serviceToggleOpen : ''
                                 }`}
-                                onClick={() => {
-                                    if (isBybitOpen) {
-                                        setIsClosingBybit(true)
-                                        setIsBybitOpen(false)
-                                        setTimeout(
-                                            () => setIsClosingBybit(false),
-                                            300
-                                        )
-                                    } else {
-                                        setIsBybitOpen(true)
-                                    }
-                                }}
+                                onClick={handleToggleBybit}
                             >
                                 <span className={styles.serviceToggleIcon}>
                                     <img src={DropdownIcon} alt="" />
@@ -279,13 +347,20 @@ export const SubscriptionsPage = () => {
                         </div>
                     </section>
 
-                    {/* PDF Checker */}
                     <section className={styles.serviceSection}>
                         <header
                             className={`${styles.serviceHeader} ${
-                                isPdfOpen ? styles.serviceHeaderIsOpen : ''
+                                isPdfHeaderOpen
+                                    ? styles.serviceHeaderIsOpen
+                                    : ''
                             } ${
-                                isClosingPdf ? styles.serviceHeaderClosing : ''
+                                isPdfHeaderClosing
+                                    ? styles.serviceHeaderClosing
+                                    : ''
+                            } ${
+                                isPdfHeaderOpening
+                                    ? styles.serviceHeaderOpening
+                                    : ''
                             }`}
                         >
                             <span className={styles.serviceName}>
@@ -296,18 +371,7 @@ export const SubscriptionsPage = () => {
                                 className={`${styles.serviceToggle} ${
                                     isPdfOpen ? styles.serviceToggleOpen : ''
                                 }`}
-                                onClick={() => {
-                                    if (isPdfOpen) {
-                                        setIsClosingPdf(true)
-                                        setIsPdfOpen(false)
-                                        setTimeout(
-                                            () => setIsClosingPdf(false),
-                                            300
-                                        )
-                                    } else {
-                                        setIsPdfOpen(true)
-                                    }
-                                }}
+                                onClick={handleTogglePdf}
                             >
                                 <span className={styles.serviceToggleIcon}>
                                     <img src={DropdownIcon} alt="" />
