@@ -1,0 +1,121 @@
+.page {
+    padding: 32px 16px 32px;
+}
+
+.title {
+    margin: 0 0 24px;
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    font-variation-settings: 'wdth' 120;
+    color: #fff;
+}
+
+/* Карточка с данными */
+.card {
+    background: #cdf9e7;
+    border-radius: 28px;
+    padding: 20px 18px 18px;
+}
+
+/* UID + кнопка копирования */
+.uidRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.uidValue {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.uidLabel {
+    margin-top: 4px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+/* кнопка копирования */
+.copyButton {
+    border: none;
+    background: transparent;
+    padding: 4px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* блок с username */
+.usernameBlock {
+    margin-bottom: 32px;
+}
+
+.username {
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+}
+
+.usernameLabel {
+    margin-top: 8px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+/* Активные аккаунты */
+
+.activityTitle {
+    margin-bottom: 12px;
+
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+}
+
+.activityGridHeader,
+.activityGridValues {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 11px;
+}
+
+.activityGridHeader {
+    margin-bottom: 8px;
+
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+.activityGridValues {
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: #0e1412;
+}
