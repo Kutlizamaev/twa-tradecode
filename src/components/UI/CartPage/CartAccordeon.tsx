@@ -1,7 +1,9 @@
-import { useState } from 'react'
 import styles from './CartUIStyles.module.css'
 import ClearAccordeonIcon from '../../../assets/icons/ui/ClearAccordeonIcon.svg'
 import DropdownIcon from '../../../assets/icons/ui/DropdownIcon.svg'
+import { useState } from 'react'
+import { useAppDispatch } from '../../../store/hooks'
+import { unselectAll } from '../../../features/cart/cartSlice'
 
 interface CartAccordeonProps {
     title: string
@@ -9,21 +11,72 @@ interface CartAccordeonProps {
     children: React.ReactNode
 }
 
+const BODY_CLOSE_DURATION = 350
+const HEADER_RADIUS_DURATION = 250
+
 export const CartAccordeon = ({
     title,
     total,
     children,
 }: CartAccordeonProps) => {
-    const [open, setOpen] = useState(true)
+    const dispatch = useAppDispatch()
+
+    const unselectAllItems = () => {
+        dispatch(unselectAll(title))
+    }
+
+    const [isOpen, setIsOpen] = useState(true)
+    const [isHeaderClosing, setIsHeaderClosing] = useState(false)
+    const [isHeaderOpen, setIsHeaderOpen] = useState(true)
+    const [isClosing, setIsClosing] = useState(false)
+    const [isHeaderOpening, setIsHeaderOpening] = useState(false)
+
+    const handleToggle = () => {
+        if (isOpen) {
+            setIsClosing(true)
+            setIsOpen(false)
+
+            setTimeout(() => {
+                setIsClosing(false)
+
+                setIsHeaderClosing(true)
+                setIsHeaderOpen(false)
+
+                setTimeout(() => {
+                    setIsHeaderClosing(false)
+                }, HEADER_RADIUS_DURATION)
+            }, BODY_CLOSE_DURATION)
+        } else {
+            setIsHeaderOpening(true)
+            setIsHeaderOpen(true)
+
+            setTimeout(() => {
+                setIsHeaderOpening(false)
+
+                setIsOpen(true)
+                setIsClosing(false)
+            }, HEADER_RADIUS_DURATION)
+        }
+    }
 
     return (
-        <div className={`${styles.accordeon} ${open ? styles.open : ''}`}>
-            <div className={styles.accordeonHeader}>
+        <section className={styles.accordeon}>
+            <header
+                className={`${styles.accordeonHeader} ${
+                    isHeaderOpen ? styles.accordeonHeaderIsOpen : ''
+                } ${isHeaderClosing ? styles.accordeonHeaderClosing : ''} ${
+                    isHeaderOpening ? styles.accordeonHeaderOpening : ''
+                }`}
+            >
                 <div className={styles.headerLeft}>
                     {title === 'Отрисовка' ? null : (
-                        <div className={styles.arrow}>
+                        <button
+                            type="button"
+                            className={styles.arrow}
+                            onClick={unselectAllItems}
+                        >
                             <img src={ClearAccordeonIcon} alt="" />
-                        </div>
+                        </button>
                     )}
 
                     <span className={styles.accordeonTitle}>{title}</span>
@@ -32,16 +85,31 @@ export const CartAccordeon = ({
                     <div className={styles.totalTag}>
                         <span>Всего</span> {total}
                     </div>
-                    <div
-                        className={styles.accordeonToggle}
-                        onClick={() => setOpen(!open)}
+                    <button
+                        type="button"
+                        className={`${styles.accordeonToggle} ${
+                            isOpen ? styles.accordeonToggleOpen : ''
+                        }`}
+                        onClick={handleToggle}
                     >
-                        <img src={DropdownIcon} alt="" />
-                    </div>
+                        <img
+                            className={styles.accordeonToggleIcon}
+                            src={DropdownIcon}
+                            alt=""
+                        />
+                    </button>
                 </div>
-            </div>
+            </header>
 
-            {open && <div className={styles.accordeonBody}>{children}</div>}
-        </div>
+            <div
+                className={`${styles.accordeonBody} ${
+                    isOpen
+                        ? styles.accordeonBodyOpen
+                        : styles.accordeonBodyClosed
+                } ${isClosing ? styles.closing : styles.opening}`}
+            >
+                {children}
+            </div>
+        </section>
     )
 }

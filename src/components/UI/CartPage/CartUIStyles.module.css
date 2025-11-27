@@ -1,7 +1,4 @@
 .accordeon {
-    background: #cdf9e7;
-    border-radius: 18px;
-    padding: 14px;
     margin-bottom: 4px;
 }
 
@@ -9,7 +6,66 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background: #cdf9e7;
+}
+
+.accordeonHeaderIsOpen {
+    border-radius: 24px 24px 0 0;
+}
+
+.accordeonHeaderClosing {
+    transition: border-radius 0.25s ease;
+}
+
+.accordeonHeaderOpening {
+    transition: border-radius 0.25s ease;
+}
+
+.accordeonBody {
+    padding: 0 12px 12px 12px;
+    border-radius: 0 0 16px 16px;
+    background: #cdf9e7;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* открытое состояние */
+.accordeonBodyOpen {
+    max-height: 3000px;
+    transform: translateY(0);
+}
+
+/* закрытое состояние */
+.accordeonBodyClosed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* анимация как в SubscriptionAccordeon */
+.opening {
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease,
+        padding-top 0.25s ease, padding-bottom 0.25s ease;
+}
+
+.closing {
+    transition: max-height 0.35s ease-out, opacity 0.25s ease-out,
+        padding-top 0.2s ease-out, padding-bottom 0.2s ease-out;
+}
+
+.accordeonToggleIcon {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.accordeonToggleOpen .accordeonToggleIcon {
+    transform: rotate(180deg);
 }
 
 .headerRight {
@@ -56,7 +112,6 @@
 }
 
 .accordeonBody {
-    margin-top: 16px;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -74,8 +129,8 @@
 
 .checkboxWrapper {
     position: relative;
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
 }
 
 .checkboxWrapper input {
@@ -87,8 +142,8 @@
 }
 
 .checkbox {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     border-radius: 6px;
     display: block;
     display: flex;

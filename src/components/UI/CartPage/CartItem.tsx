@@ -1,29 +1,45 @@
 import styles from './CartUIStyles.module.css'
 import checkMarkIcon from '../../../assets/icons/ui/CheckMarkAccordeonIcon.svg'
+import { useAppDispatch } from '../../../store/hooks'
+import { toggleItemSelection } from '../../../features/cart/cartSlice'
 
 interface CartItemProps {
+    id: string
     name: string
     uid: string
     duration: string
     price: string
-    checked?: boolean
+    isSelected: boolean
 }
 
 export const CartItem = ({
+    id,
     name,
     uid,
     duration,
     price,
-    checked,
+    isSelected,
 }: CartItemProps) => {
+    const dispatch = useAppDispatch()
+
+    const handleChange = () => {
+        dispatch(toggleItemSelection(id))
+    }
+
     return (
         <div className={styles.itemRow}>
             <label className={styles.checkboxWrapper}>
-                <input type="checkbox" defaultChecked={checked} />
-                {checked && (
+                <input
+                    type="checkbox"
+                    checked={isSelected}
+                    onChange={handleChange}
+                />
+                {isSelected ? (
                     <span className={styles.checkbox}>
                         <img src={checkMarkIcon} alt="" />
                     </span>
+                ) : (
+                    <span className={styles.checkbox} />
                 )}
             </label>
 

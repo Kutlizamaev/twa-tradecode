@@ -1,19 +1,44 @@
-// MainLayout.tsx
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import styles from './MainLayout.module.css'
 import BottomNav from '../UI/BottomNav'
-import { useAppSelector } from '../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { selectCartSummary } from '../../features/cart/cartSlice'
+import {
+    selectSubscriptionsSummary,
+    selectSelectedForCartList,
+    clearSelection,
+} from '../../features/subscriptions/subscriptionsSlice'
+import { addManyFromSubscriptions } from '../../features/cart/cartSlice'
 import { CartBar } from '../UI/CartBar/CartBar'
 
 const MainLayout = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     const isSubscriptionsPage = location.pathname === '/subscriptions'
     const isCartPage = location.pathname === '/cart'
 
-    const { selectedUsers, totalPrice } = useAppSelector(selectCartSummary)
+    const dispatch = useAppDispatch()
 
-    const hasSelection = selectedUsers > 0
+    const { selectedUsers: cartUsers, totalPrice: cartTotal } =
+        useAppSelector(selectCartSummary)
+
+    const { selectedUsers: subsUsers, totalPrice: subsTotal } = useAppSelector(
+        selectSubscriptionsSummary
+    )
+
+    const selectedForCart = useAppSelector(selectSelectedForCartList)
+    const hasSelectionOnSubscriptions = subsUsers > 0
+
+    const handleAddToCart = () => {
+        if (!selectedForCart.length) return
+        dispatch(addManyFromSubscriptions(selectedForCart))
+        dispatch(clearSelection())
+        navigate('/cart')
+    }
+
+    const handlePay = () => {
+        // логика оплаты
+    }
 
     return (
         <div className={styles.root}>
@@ -23,17 +48,24 @@ const MainLayout = () => {
                 </div>
                 <div className={styles.bottomDock}>
                     <CartBar
-                        visible={isSubscriptionsPage && hasSelection}
-                        selectedUsers={selectedUsers}
-                        totalPrice={`${totalPrice} USDT`}
+                        visible={
+                            isSubscriptionsPage && hasSelectionOnSubscriptions
+                        }
+                        selectedUsers={subsUsers}
+                        totalPrice={`${subsTotal} USDT`}
+                        onPrimaryClick={handleAddToCart}
                     />
+
                     <CartBar
                         visible={isCartPage}
-                        totalPrice={`${totalPrice} USDT`}
-                        isCartPage={isCartPage}
+                        selectedUsers={cartUsers}
+                        totalPrice={`${cartTotal} USDT`}
+                        isCartPage
+                        onPrimaryClick={handlePay}
                     />
+
                     <BottomNav
-                        cartBarIsVisible={hasSelection}
+                        cartBarIsVisible={hasSelectionOnSubscriptions}
                         isCartPage={isCartPage}
                     />
                 </div>

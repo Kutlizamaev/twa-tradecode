@@ -47,7 +47,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
     }
 
     const serviceId =
-        name === 'Bybit Eye'
+        name === 'ByBit Eye'
             ? 'BYBIT_EYE'
             : name === 'PDF Checker'
             ? 'PDF_CHECKER'
@@ -84,6 +84,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="1"
                     serviceId={serviceId}
+                    serviceName={name}
                     title="Zelimxan"
                     uid="321 32 91 23"
                     status="active"
@@ -94,6 +95,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="2"
                     serviceId={serviceId}
+                    serviceName={name}
                     title="Zelimxan"
                     uid="321 32 91 23"
                     status="active"
@@ -104,6 +106,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="3"
                     serviceId={serviceId}
+                    serviceName={name}
                     title="Zelimxan"
                     uid="321 32 91 23"
                     status="expired"
@@ -113,6 +116,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="4"
                     serviceId={serviceId}
+                    serviceName={name}
                     title="Zelimxan"
                     uid="321 32 91 23"
                     status="expired"

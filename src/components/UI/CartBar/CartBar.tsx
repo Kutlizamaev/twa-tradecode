@@ -1,10 +1,11 @@
 import styles from './CartBar.module.css'
 
 type CartBarProps = {
+    visible: boolean
     selectedUsers?: number
     totalPrice: string
-    visible?: boolean
     isCartPage?: boolean
+    onPrimaryClick?: () => void
 }
 
 export const CartBar = ({
@@ -12,8 +13,10 @@ export const CartBar = ({
     totalPrice,
     visible = true,
     isCartPage,
+    onPrimaryClick,
 }: CartBarProps) => {
     if (!visible) return null
+    const buttonText = isCartPage ? 'Оплатить' : 'В корзину'
 
     return (
         <div className={styles.cartBar}>
@@ -26,8 +29,8 @@ export const CartBar = ({
                 </div>
             )}
 
-            <button className={styles.cartButton}>
-                <span>В корзину</span>
+            <button className={styles.cartButton} onClick={onPrimaryClick}>
+                <span>{buttonText}</span>
                 <span className={styles.cartPrice}>{totalPrice}</span>
             </button>
         </div>
