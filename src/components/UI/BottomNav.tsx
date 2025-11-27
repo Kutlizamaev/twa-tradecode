@@ -19,9 +19,10 @@ const tabs = [
 
 interface BottomNavProps {
     cartBarIsVisible: boolean
+    isCartPage: boolean
 }
 
-const BottomNav = ({ cartBarIsVisible }: BottomNavProps) => {
+const BottomNav = ({ cartBarIsVisible, isCartPage }: BottomNavProps) => {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -36,6 +37,8 @@ const BottomNav = ({ cartBarIsVisible }: BottomNavProps) => {
         <nav
             className={
                 cartBarIsVisible
+                    ? styles.subscriptionPageBottomNav
+                    : isCartPage
                     ? styles.subscriptionPageBottomNav
                     : styles.bottomNav
             }

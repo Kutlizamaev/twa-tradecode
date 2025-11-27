@@ -9,6 +9,7 @@ import { CartBar } from '../UI/CartBar/CartBar'
 const MainLayout = () => {
     const location = useLocation()
     const isSubscriptionsPage = location.pathname === '/subscriptions'
+    const isCartPage = location.pathname === '/cart'
 
     const { selectedUsers, totalPrice } = useAppSelector(selectCartSummary)
 
@@ -26,7 +27,15 @@ const MainLayout = () => {
                         selectedUsers={selectedUsers}
                         totalPrice={`${totalPrice} USDT`}
                     />
-                    <BottomNav cartBarIsVisible={hasSelection} />
+                    <CartBar
+                        visible={isCartPage}
+                        totalPrice={`${totalPrice} USDT`}
+                        isCartPage={isCartPage}
+                    />
+                    <BottomNav
+                        cartBarIsVisible={hasSelection}
+                        isCartPage={isCartPage}
+                    />
                 </div>
             </div>
         </div>
