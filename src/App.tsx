@@ -1,13 +1,11 @@
-// src/App.tsx
-import React from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
-import MainLayout from './components/MainLayout'
-import HomePage from './pages/HomePage/HomePage'
-import { SubscriptionsPage } from './pages/SubscriptionsPage'
-import { ProfilePage } from './pages/ProfilePage'
-import { CartPage } from './pages/CartPage'
+import MainLayout from './components/Layouts/MainLayout'
+import { SubscriptionsPage } from './pages/SubscriptionPage/SubscriptionsPage'
+import { ProfilePage } from './pages/ProfilePage/ProfilePage'
+import { CartPage } from './pages/CartPage/CartPage'
+import { HomePage } from './pages/HomePage/HomePage'
 
-const App: React.FC = () => {
+const App = () => {
     return (
         <HashRouter>
             <Routes>

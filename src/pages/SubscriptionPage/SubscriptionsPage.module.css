@@ -1,0 +1,52 @@
+.page {
+    min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageInner {
+    padding: 0 0 calc(210px + env(safe-area-inset-bottom, 0px)) 0px;
+}
+
+.header {
+    padding: 32px 16px 16px 16px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    background: radial-gradient(
+        520.42% 147.82% at 50% -47.82%,
+        #002a07 0%,
+        #00f091 100%
+    );
+    color: #fff;
+}
+
+.title {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    font-variation-settings: 'wdth' 120;
+    margin-bottom: 16px;
+}
+
+.segmentedButton {
+    border: none;
+    border-radius: 100px;
+    padding: 8px 12px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+    background: #f9fafb;
+    color: #0e1412;
+    margin-right: 4px;
+}
+
+.content {
+    flex: 1;
+    margin-top: 16px;
+    padding: 0 24px;
+}

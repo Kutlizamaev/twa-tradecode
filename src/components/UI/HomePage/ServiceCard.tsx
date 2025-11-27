@@ -1,9 +1,9 @@
-import styles from './UIStyles.module.css'
-import BybitEyeLogo from '../../assets/icons/logo/BybitEyeLogoIcon.svg'
-import PDFCheckerLogo from '../../assets/icons/logo/PDFCheckerLogoIcon.svg'
-import HTXEyeLogo from '../../assets/icons/logo/HTXEyeLogoIcon.svg'
+import styles from '../UIStyles.module.css'
+import BybitEyeLogo from '../../../assets/icons/logo/BybitEyeLogoIcon.svg'
+import PDFCheckerLogo from '../../../assets/icons/logo/PDFCheckerLogoIcon.svg'
+import HTXEyeLogo from '../../../assets/icons/logo/HTXEyeLogoIcon.svg'
 
-import ServiceQuestionIcon from '../../assets/icons/ui/ServiceQuestionIcon.svg?react'
+import ServiceQuestionIcon from '../../../assets/icons/ui/ServiceQuestionIcon.svg?react'
 
 type ServiceCardProps = {
     name: string

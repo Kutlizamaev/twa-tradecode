@@ -5,6 +5,10 @@
     height: 100%;
 }
 
+.pageInner {
+    padding: 0 0 calc(80px + env(safe-area-inset-bottom, 0px)) 0px;
+}
+
 .scroll {
     flex: 1;
     overflow-y: auto;

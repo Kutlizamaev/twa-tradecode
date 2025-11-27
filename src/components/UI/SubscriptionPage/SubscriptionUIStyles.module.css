@@ -1,0 +1,245 @@
+.serviceSection {
+    margin-bottom: 4px;
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background: #cdf9e7;
+    color: #f9fafb;
+}
+
+.serviceHeaderClosing {
+    transition: border-radius 0.25s ease;
+}
+
+.serviceHeaderOpening {
+    transition: border-radius 0.25s ease;
+}
+
+.serviceHeaderIsOpen {
+    border-radius: 24px 24px 0 0;
+}
+
+.serviceName {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+    color: #0e1412;
+}
+
+.serviceToggle {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.serviceToggleIcon {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.serviceToggleOpen .serviceToggleIcon {
+    transform: rotate(180deg);
+}
+
+.serviceBody {
+    padding: 0px 12px 12px 12px;
+    border-radius: 0 0 16px 16px;
+    background: #cdf9e7;
+
+    overflow: hidden;
+}
+
+.serviceBodyOpen {
+    max-height: 3000px;
+    transform: translateY(0);
+}
+
+.serviceBodyClosed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.opening {
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease,
+        padding-top 0.25s ease, padding-bottom 0.25s ease;
+}
+
+.closing {
+    transition: max-height 0.35s ease-out, opacity 0.25s ease-out,
+        padding-top 0.2s ease-out, padding-bottom 0.2s ease-out;
+}
+
+.subscriptionCard {
+    border-radius: 12px;
+    background: #fff;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.08);
+}
+
+.subscriptionCardActive {
+    background: #00f091;
+}
+
+.subscriptionCard + .subscriptionCard {
+    margin-top: 8px;
+}
+
+.subscriptionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 16px;
+}
+
+.subscriptionTitle {
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: #0e1412;
+}
+
+.subscriptionUid {
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: #717182;
+}
+
+.subscriptionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    background: #cdf9e7;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.subscriptionStatus {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    padding: 4px;
+    background: #fff;
+    border-radius: 100px;
+    padding: 4px 12px 4px 4px;
+}
+
+.subscriptionStatusExpired {
+    background: #f00060;
+}
+
+.subscriptionStatusTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.subscriptionStatusText {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    color: #0e1412;
+}
+
+.subscriptionStatusTextExpired {
+    color: #fff;
+}
+
+.subscriptionStatusSubtext {
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: #717182;
+}
+
+.subscriptionStatusDotActive,
+.subscriptionStatusDotInactive {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    border: 2px solid #f9fafb;
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.08);
+}
+
+.subscriptionStatusDotActive {
+    background: #22c55e;
+}
+
+.subscriptionStatusDotInactive {
+    background: #ef4444;
+}
+
+.subscriptionPills {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+.pillNeutral {
+    padding: 4px 4px 4px 12px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    color: #0e1412;
+    gap: 4px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.pillNeutralActive {
+    background: #00f091;
+}
+
+.pillNeutral p {
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+}
+
+.pillAccent {
+    background: #cdf9e7;
+    color: #717182;
+    padding: 6px 4px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+    border-radius: 100px;
+}
+
+.pillAccentActive {
+    background: #0e1412;
+    color: #fff;
+}

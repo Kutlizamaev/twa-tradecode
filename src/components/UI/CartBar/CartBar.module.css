@@ -1,0 +1,61 @@
+.cartBar {
+    background: #cdf9e7;
+    color: #f9fafb;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    border-radius: 22px 22px 0px 0px;
+    padding: 24px 16px 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cartInfoLabel {
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+.cartInfoValue {
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    color: #0e1412;
+}
+
+.cartInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.cartButton {
+    border-radius: 16px;
+    border: none;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    background: #00f091;
+
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-align: center;
+    color: #022c22;
+}
+
+.cartPrice {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(2, 44, 34, 0.14);
+}

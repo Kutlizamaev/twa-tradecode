@@ -17,7 +17,11 @@ const tabs = [
     { id: 'cart', path: '/cart', label: 'Корзина', Icon: CartIcon },
 ]
 
-const BottomNav = () => {
+interface BottomNavProps {
+    cartBarIsVisible: boolean
+}
+
+const BottomNav = ({ cartBarIsVisible }: BottomNavProps) => {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -29,7 +33,13 @@ const BottomNav = () => {
         ) || 0
 
     return (
-        <nav className={styles.bottomNav}>
+        <nav
+            className={
+                cartBarIsVisible
+                    ? styles.subscriptionPageBottomNav
+                    : styles.bottomNav
+            }
+        >
             <div className={styles.bottomNavInner}>
                 <div
                     className={styles.bottomNavActiveBg}

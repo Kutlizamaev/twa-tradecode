@@ -236,21 +236,17 @@
 /* Нижнее меню */
 
 .bottomNav {
-    position: fixed;
-    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: calc(100% - 24px);
-    max-width: 390px;
-
     background: #cdf9e7;
     border-radius: 22px;
-
     padding: 2px 4px;
-    z-index: 50;
+    width: 100%;
+}
 
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+.subscriptionPageBottomNav {
+    background: #cdf9e7;
+    border-radius: 0 0 22px 22px;
+    padding: 2px 4px;
+    width: 100%;
 }
 
 .bottomNavInner {
