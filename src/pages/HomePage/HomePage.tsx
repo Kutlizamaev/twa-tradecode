@@ -1,9 +1,9 @@
-import BalanceCard from '../../components/UI/BalanceCard'
-import PromoCard from '../../components/UI/PromoCard'
-import ServiceCard from '../../components/UI/ServiceCard'
+import BalanceCard from '../../components/UI/HomePage/BalanceCard'
+import PromoCard from '../../components/UI/HomePage/PromoCard'
+import ServiceCard from '../../components/UI/HomePage/ServiceCard'
 import styles from './HomePage.module.css'
 
-export default function HomePage() {
+export const HomePage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.pageInner}>

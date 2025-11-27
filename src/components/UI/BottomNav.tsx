@@ -17,11 +17,13 @@ const tabs = [
     { id: 'cart', path: '/cart', label: 'Корзина', Icon: CartIcon },
 ]
 
-const BottomNav = () => {
+interface BottomNavProps {
+    cartBarIsVisible: boolean
+}
+
+const BottomNav = ({ cartBarIsVisible }: BottomNavProps) => {
     const location = useLocation()
     const navigate = useNavigate()
-
-    const isSubscriptionsPage = location.pathname === '/subscriptions'
 
     const activeIndex =
         tabs.findIndex((tab) =>
@@ -33,7 +35,7 @@ const BottomNav = () => {
     return (
         <nav
             className={
-                isSubscriptionsPage
+                cartBarIsVisible
                     ? styles.subscriptionPageBottomNav
                     : styles.bottomNav
             }

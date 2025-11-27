@@ -1,5 +1,5 @@
-import styles from './UIStyles.module.css'
-import PromoCardImagePng from '../../assets/icons/ui/PromoCardImage.png'
+import styles from '../UIStyles.module.css'
+import PromoCardImagePng from '../../../assets/images/PromoCardImage.png'
 
 const PromoCard = () => {
     const openTelegramPost = (link: string) => {

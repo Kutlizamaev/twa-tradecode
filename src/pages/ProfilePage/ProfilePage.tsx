@@ -1,4 +1,4 @@
-export function ProfilePage() {
+export const ProfilePage = () => {
     return (
         <div style={{ padding: 16 }}>
             <h1>Профиль</h1>

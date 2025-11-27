@@ -1,4 +1,3 @@
-// CartBar.tsx
 import styles from './CartBar.module.css'
 
 type CartBarProps = {

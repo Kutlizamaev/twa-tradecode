@@ -1,4 +1,4 @@
-import styles from './UIStyles.module.css'
+import styles from '../UIStyles.module.css'
 
 const BalanceCard = () => {
     return (
