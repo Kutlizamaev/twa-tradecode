@@ -1,0 +1,234 @@
+/* Баланс */
+
+.balanceCard {
+    background-color: #cdf9e7;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    padding: 14px 16px 12px;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.balanceTop {
+    margin-bottom: 10px;
+}
+
+.balanceLabel {
+    display: block;
+    color: #0e1412;
+    margin-bottom: 12px;
+
+    font-family: 'TikTok Sans';
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 80%;
+    letter-spacing: -2%;
+}
+
+.balanceValueRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.balanceCurrency {
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 80%;
+    letter-spacing: -4%;
+}
+
+.balanceValue {
+    font-family: 'Martian Grotesk';
+    color: black;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 80%;
+    letter-spacing: -3%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.balanceCents {
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 80%;
+    letter-spacing: -4%;
+}
+
+.balanceButton {
+    width: 100%;
+    margin-top: 8px;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    background: #00f091;
+    cursor: pointer;
+
+    font-family: 'TikTok Sans';
+    color: #0e1412;
+    font-weight: 700;
+    font-style: Black;
+    font-size: 12px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    text-align: center;
+}
+
+/* Карточка сервиса */
+
+.serviceCard {
+    background: #cdf9e7;
+    border-radius: 22px;
+    padding: 12px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.serviceLogo {
+    margin: 8px;
+}
+
+.serviceHeaderText {
+    flex: 1;
+}
+
+.serviceTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.serviceTitle {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.serviceDescription {
+    margin-top: 8px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: -2%;
+    color: #0e1412;
+    max-width: 220px;
+}
+
+/* Внутренняя белая карточка со статистикой */
+
+.serviceStatsCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 16px;
+    margin-bottom: 8px;
+}
+
+.serviceStatsTitle {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.serviceStatsGrid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 12px;
+    margin-bottom: 8px;
+}
+
+.serviceStatsDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+}
+
+.serviceStatLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+}
+
+.serviceStatValue {
+    margin-top: 8px;
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+}
+
+/* Прогресс-бар */
+
+.serviceProgress {
+    margin-top: 16px;
+    display: flex;
+    border-radius: 100px;
+}
+
+.serviceProgressBar {
+    height: 3px;
+    flex-basis: 0;
+}
+
+.serviceProgressGreen {
+    background: #61d977;
+}
+
+.serviceProgressOrange {
+    background: #d99561;
+}
+
+.serviceProgressRed {
+    background: #d96169;
+}
+
+.serviceProgressGray {
+    background: #c3c5d9;
+}
+
+.serviceButton {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #ffffff;
+    cursor: pointer;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    text-align: center;
+}
+
+/* Промо-баннер */
+
+.promoCard {
+    margin-bottom: 10px;
+    cursor: pointer;
+}

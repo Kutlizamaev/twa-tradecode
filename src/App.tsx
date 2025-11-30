@@ -4,6 +4,7 @@ import { SubscriptionsPage } from './pages/SubscriptionPage/SubscriptionsPage'
 import { ProfilePage } from './pages/ProfilePage/ProfilePage'
 import { CartPage } from './pages/CartPage/CartPage'
 import { HomePage } from './pages/HomePage/HomePage'
+import { TopUpPage } from './pages/TopUpPage/TopUpPage'
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                     />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/cart" element={<CartPage />} />
+                    <Route path="/topup" element={<TopUpPage />} />
 
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>

@@ -1,4 +1,4 @@
-import styles from '../UIStyles.module.css'
+import styles from './HomeUIStyles.module.css'
 import PromoCardImagePng from '../../../assets/images/PromoCardImage.png'
 
 const PromoCard = () => {

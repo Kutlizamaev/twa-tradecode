@@ -9,13 +9,15 @@ import {
     clearSelection,
 } from '../../features/subscriptions/subscriptionsSlice'
 import { addManyFromSubscriptions } from '../../features/cart/cartSlice'
-import { CartBar } from '../UI/CartBar/CartBar'
+import { CartBar } from '../UI/CartBarUI/CartBar'
 
 const MainLayout = () => {
     const location = useLocation()
     const navigate = useNavigate()
+
     const isSubscriptionsPage = location.pathname === '/subscriptions'
     const isCartPage = location.pathname === '/cart'
+    const isTopUpPage = location.pathname === '/topup'
 
     const dispatch = useAppDispatch()
 
@@ -64,10 +66,12 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    <BottomNav
-                        cartBarIsVisible={hasSelectionOnSubscriptions}
-                        isCartPage={isCartPage}
-                    />
+                    {!isTopUpPage && (
+                        <BottomNav
+                            cartBarIsVisible={hasSelectionOnSubscriptions}
+                            isCartPage={isCartPage}
+                        />
+                    )}
                 </div>
             </div>
         </div>

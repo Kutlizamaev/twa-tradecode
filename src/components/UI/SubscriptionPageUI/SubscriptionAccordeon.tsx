@@ -86,7 +86,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                     serviceId={serviceId}
                     serviceName={name}
                     title="Zelimxan"
-                    uid="321 32 91 23"
+                    uid="963852741"
                     status="active"
                     daysLeft={5}
                     price7={10}
@@ -96,8 +96,8 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                     id="2"
                     serviceId={serviceId}
                     serviceName={name}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    title="Rachel"
+                    uid="842568475"
                     status="active"
                     daysLeft={5}
                     price7={10}
@@ -107,8 +107,8 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                     id="3"
                     serviceId={serviceId}
                     serviceName={name}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    title="Zagit"
+                    uid="321329123"
                     status="expired"
                     price7={10}
                     price30={30}
@@ -117,8 +117,8 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                     id="4"
                     serviceId={serviceId}
                     serviceName={name}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    title="Ishak"
+                    uid="684659451"
                     status="expired"
                     price7={10}
                     price30={30}

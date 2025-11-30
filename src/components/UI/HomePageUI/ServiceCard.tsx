@@ -1,4 +1,4 @@
-import styles from '../UIStyles.module.css'
+import styles from './HomeUIStyles.module.css'
 import BybitEyeLogo from '../../../assets/icons/logo/BybitEyeLogoIcon.svg'
 import PDFCheckerLogo from '../../../assets/icons/logo/PDFCheckerLogoIcon.svg'
 import HTXEyeLogo from '../../../assets/icons/logo/HTXEyeLogoIcon.svg'
