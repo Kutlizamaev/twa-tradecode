@@ -67,7 +67,10 @@ const MainLayout = () => {
 
                     {!isTopUpPage && !isPaymentPage && (
                         <BottomNav
-                            cartBarIsVisible={hasSelectionOnSubscriptions}
+                            cartBarIsVisible={
+                                isSubscriptionsPage &&
+                                hasSelectionOnSubscriptions
+                            }
                             isCartPage={isCartPage}
                         />
                     )}
