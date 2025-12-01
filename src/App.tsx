@@ -5,6 +5,7 @@ import SubscriptionsPage from './pages/SubscriptionPage/SubscriptionsPage'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import CartPage from './pages/CartPage/CartPage'
 import TopUpPage from './pages/TopUpPage/TopUpPage'
+import PaymentPage from './pages/PaymentPage/PaymentPage'
 
 const App = () => {
     return (
@@ -19,6 +20,8 @@ const App = () => {
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/topup" element={<TopUpPage />} />
+
+                    <Route path="/payment" element={<PaymentPage />} />
 
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>

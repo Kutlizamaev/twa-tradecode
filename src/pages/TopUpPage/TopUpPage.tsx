@@ -2,10 +2,13 @@ import { useState } from 'react'
 import styles from './TopUpPage.module.css'
 import UsdtIcon from '../../assets/icons/ui/UsdtIcon.svg'
 import PageHeader from '../../components/UI/PageHeader'
+import { useNavigate } from 'react-router-dom'
 
 const QUICK_AMOUNTS = [10, 25, 50, 100, 500]
 
 const TopUpPage = () => {
+    const navigate = useNavigate()
+
     const [amount, setAmount] = useState(0)
     const [method, setMethod] = useState<'UID' | 'Bep20' | 'TRC20'>('UID')
 
@@ -16,11 +19,6 @@ const TopUpPage = () => {
 
     const handleQuickAdd = (value: number) => {
         setAmount((prev) => prev + value)
-    }
-
-    const handleSubmit = () => {
-        if (!amount) return
-        console.log('Пополнить на', amount, 'методом', method)
     }
 
     return (
@@ -114,8 +112,7 @@ const TopUpPage = () => {
                 <button
                     type="button"
                     className={styles.submitButton}
-                    disabled={!amount}
-                    onClick={handleSubmit}
+                    onClick={() => navigate('/payment')}
                 >
                     Пополнить счёт
                 </button>

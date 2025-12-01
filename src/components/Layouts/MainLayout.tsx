@@ -17,6 +17,7 @@ const MainLayout = () => {
     const isSubscriptionsPage = location.pathname === '/subscriptions'
     const isCartPage = location.pathname === '/cart'
     const isTopUpPage = location.pathname === '/topup'
+    const isPaymentPage = location.pathname === '/payment'
 
     const dispatch = useAppDispatch()
 
@@ -64,7 +65,7 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    {!isTopUpPage && (
+                    {!isTopUpPage && !isPaymentPage && (
                         <BottomNav
                             cartBarIsVisible={hasSelectionOnSubscriptions}
                             isCartPage={isCartPage}
