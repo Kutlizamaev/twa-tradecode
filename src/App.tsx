@@ -1,10 +1,10 @@
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './components/Layouts/MainLayout'
-import { SubscriptionsPage } from './pages/SubscriptionPage/SubscriptionsPage'
-import { ProfilePage } from './pages/ProfilePage/ProfilePage'
-import { CartPage } from './pages/CartPage/CartPage'
-import { HomePage } from './pages/HomePage/HomePage'
-import { TopUpPage } from './pages/TopUpPage/TopUpPage'
+import HomePage from './pages/HomePage/HomePage'
+import SubscriptionsPage from './pages/SubscriptionPage/SubscriptionsPage'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
+import CartPage from './pages/CartPage/CartPage'
+import TopUpPage from './pages/TopUpPage/TopUpPage'
 
 const App = () => {
     return (

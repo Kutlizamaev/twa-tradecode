@@ -12,6 +12,7 @@ export type PlanType = 7 | 30
 
 export type CartItem = {
     id: string
+    subscriptionId: string
     serviceId: string
     serviceName: string
     userName: string
@@ -44,22 +45,41 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        // Добавляем сразу несколько позиций из выбора на странице подписок
         addManyFromSubscriptions: (
             state,
             action: PayloadAction<AddFromSubscriptionsPayload[]>
         ) => {
             action.payload.forEach((s) => {
-                state.items.push({
-                    id: nanoid(),
-                    serviceId: s.serviceId,
-                    serviceName: s.serviceName,
-                    userName: s.userName,
-                    uid: s.uid,
-                    plan: s.plan,
-                    price: s.price,
-                    isSelected: true,
-                })
+                // ищем, есть ли уже такая подписка в корзине
+                const existingIndex = state.items.findIndex(
+                    (item) => item.subscriptionId === s.subscriptionId
+                )
+
+                if (existingIndex === -1) {
+                    // нет в корзине — добавляем новую
+                    state.items.push({
+                        id: nanoid(),
+                        subscriptionId: s.subscriptionId,
+                        serviceId: s.serviceId,
+                        serviceName: s.serviceName,
+                        userName: s.userName,
+                        uid: s.uid,
+                        plan: s.plan,
+                        price: s.price,
+                        isSelected: true,
+                    })
+                } else {
+                    // уже есть — просто обновляем план/цену/данные
+                    const existing = state.items[existingIndex]
+
+                    existing.serviceId = s.serviceId
+                    existing.serviceName = s.serviceName
+                    existing.userName = s.userName
+                    existing.uid = s.uid
+                    existing.plan = s.plan
+                    existing.price = s.price
+                    existing.isSelected = true // можно снова отметить выбранным
+                }
             })
         },
 

@@ -24,7 +24,7 @@ type SubscriptionCardProps = {
     price30: number
 }
 
-export const SubscriptionCard = ({
+const SubscriptionCard = ({
     id,
     serviceId,
     serviceName,
@@ -142,3 +142,5 @@ export const SubscriptionCard = ({
         </article>
     )
 }
+
+export default SubscriptionCard

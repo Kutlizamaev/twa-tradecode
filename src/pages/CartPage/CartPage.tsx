@@ -1,12 +1,11 @@
-// src/pages/CartPage/CartPage.tsx
-import { CartAccordeon } from '../../components/UI/CartPageUI/CartAccordeon'
 import styles from './CartPage.module.css'
-
 import { useAppSelector } from '../../store/hooks'
 import { selectCartItems } from '../../features/cart/cartSlice'
-import { CartItem } from '../../components/UI/CartPageUI/CartItem'
 
-export const CartPage = () => {
+import CartAccordeon from '../../components/UI/CartPageUI/CartAccordeon'
+import CartItem from '../../components/UI/CartPageUI/CartItem'
+
+const CartPage = () => {
     const items = useAppSelector(selectCartItems)
 
     const groups = Object.values(
@@ -76,3 +75,5 @@ export const CartPage = () => {
         </div>
     )
 }
+
+export default CartPage

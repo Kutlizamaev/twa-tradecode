@@ -1,7 +1,7 @@
 import SubscriptionAccordeon from '../../components/UI/SubscriptionPageUI/SubscriptionAccordeon'
 import styles from './SubscriptionsPage.module.css'
 
-export const SubscriptionsPage = () => {
+const SubscriptionsPage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.pageInner}>
@@ -24,3 +24,5 @@ export const SubscriptionsPage = () => {
         </div>
     )
 }
+
+export default SubscriptionsPage

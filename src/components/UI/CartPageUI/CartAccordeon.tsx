@@ -14,11 +14,7 @@ interface CartAccordeonProps {
 const BODY_CLOSE_DURATION = 350
 const HEADER_RADIUS_DURATION = 250
 
-export const CartAccordeon = ({
-    title,
-    total,
-    children,
-}: CartAccordeonProps) => {
+const CartAccordeon = ({ title, total, children }: CartAccordeonProps) => {
     const dispatch = useAppDispatch()
 
     const unselectAllItems = () => {
@@ -113,3 +109,5 @@ export const CartAccordeon = ({
         </section>
     )
 }
+
+export default CartAccordeon

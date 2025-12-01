@@ -12,7 +12,7 @@ interface CartItemProps {
     isSelected: boolean
 }
 
-export const CartItem = ({
+const CartItem = ({
     id,
     name,
     uid,
@@ -55,3 +55,5 @@ export const CartItem = ({
         </div>
     )
 }
+
+export default CartItem

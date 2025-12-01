@@ -8,7 +8,7 @@ type CartBarProps = {
     onPrimaryClick?: () => void
 }
 
-export const CartBar = ({
+const CartBar = ({
     selectedUsers,
     totalPrice,
     visible = true,
@@ -36,3 +36,5 @@ export const CartBar = ({
         </div>
     )
 }
+
+export default CartBar

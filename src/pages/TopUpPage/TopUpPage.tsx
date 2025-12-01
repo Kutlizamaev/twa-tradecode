@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import styles from './TopUpPage.module.css'
-
-import { PageHeader } from '../../components/UI/PageHeader'
-
 import UsdtIcon from '../../assets/icons/ui/UsdtIcon.svg'
+import PageHeader from '../../components/UI/PageHeader'
 
 const QUICK_AMOUNTS = [10, 25, 50, 100, 500]
 
-export const TopUpPage = () => {
+const TopUpPage = () => {
     const [amount, setAmount] = useState(0)
     const [method, setMethod] = useState<'UID' | 'Bep20' | 'TRC20'>('UID')
 
@@ -125,3 +123,5 @@ export const TopUpPage = () => {
         </div>
     )
 }
+
+export default TopUpPage

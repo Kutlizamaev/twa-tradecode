@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './SubscriptionUIStyles.module.css'
 
 import DropdownIcon from '../../../assets/icons/ui/DropdownIcon.svg'
-import { SubscriptionCard } from './SubscriptionCard'
+import SubscriptionCard from './SubscriptionCard'
 
 interface AccordeonProps {
     name: string

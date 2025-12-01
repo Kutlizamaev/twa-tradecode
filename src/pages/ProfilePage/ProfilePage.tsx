@@ -3,7 +3,7 @@ import styles from './ProfilePage.module.css'
 import CopyIcon from '../../assets/icons/ui/CopyIcon.svg'
 import { useMemo } from 'react'
 
-export const ProfilePage = () => {
+const ProfilePage = () => {
     const uid = '321 23 31 23'
 
     const username = useMemo(() => {
@@ -72,3 +72,5 @@ export const ProfilePage = () => {
         </div>
     )
 }
+
+export default ProfilePage

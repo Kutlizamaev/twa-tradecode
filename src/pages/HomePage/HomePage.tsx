@@ -3,7 +3,7 @@ import PromoCard from '../../components/UI/HomePageUI/PromoCard'
 import ServiceCard from '../../components/UI/HomePageUI/ServiceCard'
 import styles from './HomePage.module.css'
 
-export const HomePage = () => {
+const HomePage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.pageInner}>
@@ -26,3 +26,5 @@ export const HomePage = () => {
         </div>
     )
 }
+
+export default HomePage

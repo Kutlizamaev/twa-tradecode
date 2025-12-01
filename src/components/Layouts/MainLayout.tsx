@@ -9,7 +9,7 @@ import {
     clearSelection,
 } from '../../features/subscriptions/subscriptionsSlice'
 import { addManyFromSubscriptions } from '../../features/cart/cartSlice'
-import { CartBar } from '../UI/CartBarUI/CartBar'
+import CartBar from '../UI/CartBarUI/CartBar'
 
 const MainLayout = () => {
     const location = useLocation()

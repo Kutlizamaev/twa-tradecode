@@ -7,7 +7,7 @@ interface PageHeaderProps {
     onBackClick?: () => void
 }
 
-export const PageHeader = ({
+const PageHeader = ({
     title,
     showBackButton = true,
     onBackClick,
@@ -38,3 +38,5 @@ export const PageHeader = ({
         </header>
     )
 }
+
+export default PageHeader
