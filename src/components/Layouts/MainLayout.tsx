@@ -6,7 +6,6 @@ import { selectCartSummary } from '../../features/cart/cartSlice'
 import {
     selectSubscriptionsSummary,
     selectSelectedForCartList,
-    clearSelection,
 } from '../../features/subscriptions/subscriptionsSlice'
 import { addManyFromSubscriptions } from '../../features/cart/cartSlice'
 import CartBar from '../UI/CartBarUI/CartBar'
@@ -34,7 +33,6 @@ const MainLayout = () => {
     const handleAddToCart = () => {
         if (!selectedForCart.length) return
         dispatch(addManyFromSubscriptions(selectedForCart))
-        dispatch(clearSelection())
         navigate('/cart')
     }
 
