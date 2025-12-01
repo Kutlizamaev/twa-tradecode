@@ -1,4 +1,4 @@
-import SubscriptionAccordeon from '../../components/UI/SubscriptionPage/SubscriptionAccordeon'
+import SubscriptionAccordeon from '../../components/UI/SubscriptionPageUI/SubscriptionAccordeon'
 import styles from './SubscriptionsPage.module.css'
 
 export const SubscriptionsPage = () => {

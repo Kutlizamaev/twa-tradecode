@@ -7,13 +7,15 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import {
     toggleSelection,
     type PlanType,
-} from '../../../features/cart/cartSlice'
+    selectSelectedForCartMap,
+} from '../../../features/subscriptions/subscriptionsSlice'
 
 type SubscriptionStatus = 'active' | 'expired'
 
 type SubscriptionCardProps = {
     id: string
     serviceId: string
+    serviceName: string // 👈 лучше сразу пробросить с родителя
     title: string
     uid: string
     status: SubscriptionStatus
@@ -25,6 +27,7 @@ type SubscriptionCardProps = {
 export const SubscriptionCard = ({
     id,
     serviceId,
+    serviceName,
     title,
     uid,
     status,
@@ -36,11 +39,10 @@ export const SubscriptionCard = ({
 
     const subscriptionKey = `${serviceId}-${id}`
 
-    const cartItem = useAppSelector(
-        (state) => state.cart.items[subscriptionKey]
-    )
-    const selectedPlan = cartItem?.plan ?? null
-    const isActiveCard = !!cartItem
+    const selectedMap = useAppSelector(selectSelectedForCartMap)
+    const selectedItem = selectedMap[subscriptionKey]
+    const selectedPlan = selectedItem?.plan ?? null
+    const isActiveCard = !!selectedItem
 
     const isExpired = status === 'expired'
 
@@ -49,6 +51,7 @@ export const SubscriptionCard = ({
             toggleSelection({
                 subscriptionId: subscriptionKey,
                 serviceId,
+                serviceName,
                 userName: title,
                 uid,
                 plan,

@@ -1,0 +1,240 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Контент */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 16px));
+}
+
+/* Карты */
+
+.cardPrimary {
+    background: radial-gradient(
+        520.42% 147.82% at 50% -47.82%,
+        #002a07 0%,
+        #00f091 100%
+    );
+
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    margin-bottom: 16px;
+}
+
+.cardSecondary {
+    border-radius: 24px;
+    padding: 24px 16px 16px 16px;
+    background: #cdf9e7;
+    margin: 0 16px;
+}
+
+/* Баланс и заголовки */
+
+.topupForm {
+    padding: 0 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.topupFormInput {
+    background: #00f091;
+    border-radius: 24px;
+    padding: 24px 16px 16px 16px;
+}
+
+.balanceRow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.balanceLabel {
+    font-family: 'TikTok Sans';
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    color: #fff;
+}
+
+.balanceValueRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    color: #fff;
+}
+
+.balanceCurrency {
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 80%;
+    letter-spacing: -4%;
+}
+
+.balanceValue {
+    font-family: 'Martian Grotesk';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 80%;
+    letter-spacing: -3%;
+}
+
+.balanceCents {
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 80%;
+    letter-spacing: -4%;
+}
+
+.sectionTitle {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+    color: #0e1412;
+    margin-bottom: 16px;
+}
+
+/* Сумма */
+
+.amountInputWrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 24px 16px 24px;
+    margin-bottom: 14px;
+}
+
+.amountInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #0e1412;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+
+    outline: none;
+}
+
+.currencyIcon {
+    padding: 6px 10px;
+}
+
+/* Быстрые кнопки */
+
+.quickButtonsRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.quickButton {
+    flex: 1;
+    min-width: 0;
+    border-radius: 100px;
+    border: none;
+    padding: 8px 12px;
+    background: #fff;
+    color: #0e1412;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+}
+
+/* Методы */
+
+.methodsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.methodItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+    padding: 16px;
+}
+
+.methodItemActive {
+    background: #fff;
+}
+
+.methodLabel {
+    font-family: 'Martian Grotesk';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: #0e1412;
+}
+
+/* Радио */
+
+.radioOuter {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.radioOuterActive {
+    border: 5px solid #00f091;
+    background: #fff;
+}
+
+/* Нижняя кнопка */
+
+.bottomBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cdf9e7;
+    border-radius: 32px 32px 0 0;
+
+    padding: 16px 16px calc(24px + env(safe-area-inset-bottom, 16px));
+
+    pointer-events: none;
+}
+
+.submitButton {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #00ff91;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    text-align: center;
+}

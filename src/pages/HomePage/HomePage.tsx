@@ -1,6 +1,6 @@
-import BalanceCard from '../../components/UI/HomePage/BalanceCard'
-import PromoCard from '../../components/UI/HomePage/PromoCard'
-import ServiceCard from '../../components/UI/HomePage/ServiceCard'
+import BalanceCard from '../../components/UI/HomePageUI/BalanceCard'
+import PromoCard from '../../components/UI/HomePageUI/PromoCard'
+import ServiceCard from '../../components/UI/HomePageUI/ServiceCard'
 import styles from './HomePage.module.css'
 
 export const HomePage = () => {

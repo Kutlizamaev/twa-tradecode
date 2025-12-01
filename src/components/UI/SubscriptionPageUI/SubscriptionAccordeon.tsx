@@ -47,7 +47,7 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
     }
 
     const serviceId =
-        name === 'Bybit Eye'
+        name === 'ByBit Eye'
             ? 'BYBIT_EYE'
             : name === 'PDF Checker'
             ? 'PDF_CHECKER'
@@ -84,8 +84,9 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="1"
                     serviceId={serviceId}
+                    serviceName={name}
                     title="Zelimxan"
-                    uid="321 32 91 23"
+                    uid="963852741"
                     status="active"
                     daysLeft={5}
                     price7={10}
@@ -94,8 +95,9 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="2"
                     serviceId={serviceId}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    serviceName={name}
+                    title="Rachel"
+                    uid="842568475"
                     status="active"
                     daysLeft={5}
                     price7={10}
@@ -104,8 +106,9 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="3"
                     serviceId={serviceId}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    serviceName={name}
+                    title="Zagit"
+                    uid="321329123"
                     status="expired"
                     price7={10}
                     price30={30}
@@ -113,8 +116,9 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
                 <SubscriptionCard
                     id="4"
                     serviceId={serviceId}
-                    title="Zelimxan"
-                    uid="321 32 91 23"
+                    serviceName={name}
+                    title="Ishak"
+                    uid="684659451"
                     status="expired"
                     price7={10}
                     price30={30}

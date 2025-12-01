@@ -1,0 +1,18 @@
+.page {
+    padding: 32px 16px 0 16px;
+}
+
+.inner {
+    padding: 0 0 calc(180px + env(safe-area-inset-bottom, 0px)) 0px;
+}
+
+.title {
+    margin-bottom: 24px;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    font-variation-settings: 'wdth' 120;
+    color: #fff;
+}
