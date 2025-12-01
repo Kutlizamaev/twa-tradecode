@@ -7,7 +7,23 @@ import WarningIcon from '../../assets/icons/ui/WarningIcon.svg'
 
 import PageHeader from '../../components/UI/PageHeader'
 
+import { useAppDispatch } from '../../store/hooks'
+import { setPaymentStatus } from '../../features/payment/paymentSlice'
+
 const PaymentPage = () => {
+    const dispatch = useAppDispatch()
+
+    const handleCheckPayment = async () => {
+        dispatch(setPaymentStatus('processing'))
+
+        try {
+            await new Promise((res) => setTimeout(res, 1000))
+            dispatch(setPaymentStatus('success'))
+        } catch (e) {
+            dispatch(setPaymentStatus('error'))
+        }
+    }
+
     const [amount] = useState(100)
     const recipientUid = '283897690'
     const senderUid = '332182940'
@@ -106,7 +122,11 @@ const PaymentPage = () => {
                 <div className={styles.bottomBar}>
                     <p>Изменить</p>
                     <div className={styles.submitButtonsContainer}>
-                        <button type="button" className={styles.submitButton}>
+                        <button
+                            onClick={handleCheckPayment}
+                            type="button"
+                            className={styles.submitButton}
+                        >
                             UID
                         </button>
                         <button type="button" className={styles.submitButton}>
