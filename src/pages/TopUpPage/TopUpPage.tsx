@@ -17,10 +17,12 @@ const TopUpPage = () => {
 
     const handleChangeAmount = (value: number) => {
         if (Number.isNaN(value) || value < 0) return
+        if (value > 1000000) return
         setAmount(value)
     }
 
     const handleQuickAdd = (value: number) => {
+        if (amount + value > 1000000) return
         setAmount((prev) => prev + value)
     }
 
