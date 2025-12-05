@@ -99,10 +99,16 @@
     padding-top: 4px;
 }
 
+.uidRow {
+    flex: 1;
+    min-width: 0;
+}
+
 .iconButton {
     border: none;
     background: transparent;
     padding: 10px;
+    flex-shrink: 0;
 }
 
 .uidValue {
@@ -113,6 +119,21 @@
     line-height: 80%;
     letter-spacing: 0%;
     font-variation-settings: 'wdth' 120;
+}
+
+.addressValue {
+    margin-top: 8px;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 /* Желтый блок */
@@ -135,7 +156,6 @@
 .noticeText {
     display: flex;
     flex-direction: column;
-    gap: 8 px;
 }
 
 .noticeTitle {
@@ -197,13 +217,13 @@
     letter-spacing: -2%;
 }
 
-.submitButtonsContainer {
+.paymentMethodButtonsContainer {
     margin-top: 8px;
     display: flex;
     gap: 16px;
 }
 
-.submitButton {
+.paymentMethodButton {
     width: 100%;
     border-radius: 12px;
     border: none;
@@ -211,10 +231,33 @@
     background: #fff;
 
     font-family: 'TikTok Sans';
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -0.15px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+
+    pointer-events: auto;
+    transition: background 0.2s ease;
+}
+
+.paymentMethodButtonActive {
+    background: #00f091 !important;
+}
+
+.checkPaymentButton {
+    margin-top: 16px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #00f091;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
     text-align: center;
 
     pointer-events: auto;
