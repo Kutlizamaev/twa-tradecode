@@ -9,6 +9,11 @@ import {
 } from '../../features/subscriptions/subscriptionsSlice'
 import { addManyFromSubscriptions } from '../../features/cart/cartSlice'
 import CartBar from '../UI/CartBarUI/CartBar'
+import PaymentResultModal from '../UI/PaymentResultModal'
+import {
+    resetPayment,
+    selectPaymentStatus,
+} from '../../features/payment/paymentSlice'
 
 const MainLayout = () => {
     const location = useLocation()
@@ -17,6 +22,7 @@ const MainLayout = () => {
     const isSubscriptionsPage = location.pathname === '/subscriptions'
     const isCartPage = location.pathname === '/cart'
     const isTopUpPage = location.pathname === '/topup'
+    const isPaymentPage = location.pathname === '/payment'
 
     const dispatch = useAppDispatch()
 
@@ -30,6 +36,9 @@ const MainLayout = () => {
     const selectedForCart = useAppSelector(selectSelectedForCartList)
     const hasSelectionOnSubscriptions = subsUsers > 0
 
+    const paymentStatus = useAppSelector(selectPaymentStatus)
+    const isPaymentSuccess = paymentStatus === 'success'
+
     const handleAddToCart = () => {
         if (!selectedForCart.length) return
         dispatch(addManyFromSubscriptions(selectedForCart))
@@ -37,7 +46,11 @@ const MainLayout = () => {
     }
 
     const handlePay = () => {
-        // логика оплаты
+        navigate('/payment')
+    }
+
+    const handleClosePaymentModal = () => {
+        dispatch(resetPayment())
     }
 
     return (
@@ -64,13 +77,20 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    {!isTopUpPage && (
+                    {!isTopUpPage && !isPaymentPage && (
                         <BottomNav
-                            cartBarIsVisible={hasSelectionOnSubscriptions}
+                            cartBarIsVisible={
+                                isSubscriptionsPage &&
+                                hasSelectionOnSubscriptions
+                            }
                             isCartPage={isCartPage}
                         />
                     )}
                 </div>
+                <PaymentResultModal
+                    isOpen={isPaymentSuccess}
+                    onClose={handleClosePaymentModal}
+                />
             </div>
         </div>
     )

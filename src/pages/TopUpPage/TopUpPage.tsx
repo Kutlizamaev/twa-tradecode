@@ -2,12 +2,18 @@ import { useState } from 'react'
 import styles from './TopUpPage.module.css'
 import UsdtIcon from '../../assets/icons/ui/UsdtIcon.svg'
 import PageHeader from '../../components/UI/PageHeader'
+import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../../store/hooks'
+import { setPaymentParams } from '../../features/payment/paymentSlice'
 
 const QUICK_AMOUNTS = [10, 25, 50, 100, 500]
 
 const TopUpPage = () => {
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+
     const [amount, setAmount] = useState(0)
-    const [method, setMethod] = useState<'UID' | 'Bep20' | 'TRC20'>('UID')
+    const [method, setMethod] = useState<'UID' | 'BEP20' | 'TRC20'>('UID')
 
     const handleChangeAmount = (value: number) => {
         if (Number.isNaN(value) || value < 0) return
@@ -18,9 +24,11 @@ const TopUpPage = () => {
         setAmount((prev) => prev + value)
     }
 
-    const handleSubmit = () => {
-        if (!amount) return
-        console.log('Пополнить на', amount, 'методом', method)
+    const handleSubmitButton = () => {
+        dispatch(setPaymentParams({ amount, method }))
+        if (amount !== 0) {
+            navigate('/payment')
+        }
     }
 
     return (
@@ -82,7 +90,7 @@ const TopUpPage = () => {
                     <div className={styles.sectionTitle}>Способ пополнения</div>
 
                     <div className={styles.methodsList}>
-                        {['UID', 'Bep20', 'TRC20'].map((item) => (
+                        {['UID', 'BEP20', 'TRC20'].map((item) => (
                             <button
                                 key={item}
                                 className={`${styles.methodItem} ${
@@ -91,7 +99,7 @@ const TopUpPage = () => {
                                         : ''
                                 }`}
                                 onClick={() =>
-                                    setMethod(item as 'UID' | 'Bep20' | 'TRC20')
+                                    setMethod(item as 'UID' | 'BEP20' | 'TRC20')
                                 }
                             >
                                 <span
@@ -114,8 +122,7 @@ const TopUpPage = () => {
                 <button
                     type="button"
                     className={styles.submitButton}
-                    disabled={!amount}
-                    onClick={handleSubmit}
+                    onClick={handleSubmitButton}
                 >
                     Пополнить счёт
                 </button>

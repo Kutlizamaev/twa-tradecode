@@ -1,0 +1,264 @@
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 16px));
+}
+
+.cardPrimary {
+    background: radial-gradient(
+        520.42% 147.82% at 50% -47.82%,
+        #002a07 0%,
+        #00f091 100%
+    );
+
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    margin-bottom: 16px;
+}
+
+/* Центральная карточка */
+
+.paymentCardContainer {
+    padding: 0 16px 16px 16px;
+}
+
+.paymentCard {
+    background: #cdf9e7;
+    border-radius: 24px;
+    padding: 18px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.paymentHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.fieldLabel {
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+.amountRow {
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.amountInt {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    letter-spacing: 0%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.amountDecimal {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.amountAsset {
+    margin-left: 8px;
+}
+
+.amountAsset img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+/* UID блоки */
+
+.uidBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4px;
+}
+
+.uidRow {
+    flex: 1;
+    min-width: 0;
+}
+
+.iconButton {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.uidValue {
+    margin-top: 8px;
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    letter-spacing: 0%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.addressValue {
+    margin-top: 8px;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* Желтый блок */
+
+.notice {
+    margin-top: 4px;
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    background: #fffadb;
+}
+
+.noticeIcon {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.noticeText {
+    display: flex;
+    flex-direction: column;
+}
+
+.noticeTitle {
+    display: flex;
+    flex-direction: column;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: #0e1412;
+}
+
+.noticeSubtitle {
+    margin-top: 8px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    color: #0e141266;
+}
+
+/* Статус */
+
+.statusBlock {
+    margin-top: 4px;
+}
+
+.statusValue {
+    margin-top: 4px;
+    font-family: 'TikTok Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -2%;
+}
+
+/* Нижний блок */
+
+.bottomBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cdf9e7;
+    border-radius: 32px 32px 0 0;
+
+    padding: 16px 16px calc(24px + env(safe-area-inset-bottom, 16px));
+
+    pointer-events: none;
+}
+
+.bottomBar p {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+}
+
+.paymentMethodButtonsContainer {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.paymentMethodButton {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #fff;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+
+    pointer-events: auto;
+    transition: background 0.2s ease;
+}
+
+.paymentMethodButtonActive {
+    background: #00f091 !important;
+}
+
+.checkPaymentButton {
+    margin-top: 16px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #00f091;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+
+    pointer-events: auto;
+}
