@@ -51,6 +51,7 @@ const MainLayout = () => {
 
     const handleClosePaymentModal = () => {
         dispatch(resetPayment())
+        navigate('/')
     }
 
     return (
