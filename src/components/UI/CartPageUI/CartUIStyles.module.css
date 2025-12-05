@@ -80,9 +80,8 @@
     gap: 8px;
 }
 
-.arrow {
-    font-size: 18px;
-    font-weight: 700;
+.trash {
+    width: 24px;
 }
 
 .accordeonTitle {

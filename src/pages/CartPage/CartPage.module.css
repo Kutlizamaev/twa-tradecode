@@ -16,3 +16,46 @@
     font-variation-settings: 'wdth' 120;
     color: #fff;
 }
+
+.emptyCartBlock {
+    background: #cdf9e7;
+    width: 100%;
+    max-height: 350px;
+    border-radius: 24px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emptyTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    text-align: center;
+    font-variation-settings: 'wdth' 120;
+}
+
+.emptyCartButton {
+    margin-top: 32px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    background: #fff;
+    width: 100%;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    text-align: center;
+}

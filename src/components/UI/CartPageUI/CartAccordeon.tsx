@@ -1,26 +1,24 @@
 import styles from './CartUIStyles.module.css'
-import ClearAccordeonIcon from '../../../assets/icons/ui/ClearAccordeonIcon.svg'
 import DropdownIcon from '../../../assets/icons/ui/DropdownIcon.svg'
+import TrashIcon from '../../../assets/icons/ui/TrashIcon.svg'
 import { useState } from 'react'
-import { useAppDispatch } from '../../../store/hooks'
-import { unselectAll } from '../../../features/cart/cartSlice'
 
 interface CartAccordeonProps {
     title: string
     total: string
     children: React.ReactNode
+    onClear?: () => void
 }
 
 const BODY_CLOSE_DURATION = 350
 const HEADER_RADIUS_DURATION = 250
 
-const CartAccordeon = ({ title, total, children }: CartAccordeonProps) => {
-    const dispatch = useAppDispatch()
-
-    const unselectAllItems = () => {
-        dispatch(unselectAll(title))
-    }
-
+const CartAccordeon = ({
+    title,
+    total,
+    children,
+    onClear,
+}: CartAccordeonProps) => {
     const [isOpen, setIsOpen] = useState(true)
     const [isHeaderClosing, setIsHeaderClosing] = useState(false)
     const [isHeaderOpen, setIsHeaderOpen] = useState(true)
@@ -65,19 +63,19 @@ const CartAccordeon = ({ title, total, children }: CartAccordeonProps) => {
                 }`}
             >
                 <div className={styles.headerLeft}>
-                    {title === 'Отрисовка' ? null : (
-                        <button
-                            type="button"
-                            className={styles.arrow}
-                            onClick={unselectAllItems}
-                        >
-                            <img src={ClearAccordeonIcon} alt="" />
-                        </button>
-                    )}
-
                     <span className={styles.accordeonTitle}>{title}</span>
                 </div>
+
                 <div className={styles.headerRight}>
+                    {title === 'Отрисовка' ? null : (
+                        <button type="button" onClick={onClear}>
+                            <img
+                                className={styles.trash}
+                                src={TrashIcon}
+                                alt=""
+                            />
+                        </button>
+                    )}
                     <div className={styles.totalTag}>
                         <span>Всего</span> {total}
                     </div>

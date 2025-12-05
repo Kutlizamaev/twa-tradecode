@@ -50,13 +50,11 @@ const cartSlice = createSlice({
             action: PayloadAction<AddFromSubscriptionsPayload[]>
         ) => {
             action.payload.forEach((s) => {
-                // ищем, есть ли уже такая подписка в корзине
                 const existingIndex = state.items.findIndex(
                     (item) => item.subscriptionId === s.subscriptionId
                 )
 
                 if (existingIndex === -1) {
-                    // нет в корзине — добавляем новую
                     state.items.push({
                         id: nanoid(),
                         subscriptionId: s.subscriptionId,
@@ -69,7 +67,6 @@ const cartSlice = createSlice({
                         isSelected: true,
                     })
                 } else {
-                    // уже есть — просто обновляем план/цену/данные
                     const existing = state.items[existingIndex]
 
                     existing.serviceId = s.serviceId
@@ -78,12 +75,11 @@ const cartSlice = createSlice({
                     existing.uid = s.uid
                     existing.plan = s.plan
                     existing.price = s.price
-                    existing.isSelected = true // можно снова отметить выбранным
+                    existing.isSelected = true
                 }
             })
         },
 
-        // Выбор / снятие выбора конкретной позиции в корзине
         toggleItemSelection: (state, action: PayloadAction<string>) => {
             const id = action.payload
             const item = state.items.find((i) => i.id === id)
@@ -103,8 +99,11 @@ const cartSlice = createSlice({
             state.items = state.items.filter((i) => i.id !== id)
         },
 
-        clearCart: (state) => {
-            state.items = []
+        clearCartByServiceName: (state, action: PayloadAction<string>) => {
+            const serviceName = action.payload
+            state.items = state.items.filter(
+                (i) => i.serviceName !== serviceName
+            )
         },
     },
 })
@@ -114,7 +113,7 @@ export const {
     toggleItemSelection,
     unselectAll,
     removeItem,
-    clearCart,
+    clearCartByServiceName,
 } = cartSlice.actions
 
 export default cartSlice.reducer

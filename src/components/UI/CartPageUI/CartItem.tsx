@@ -1,10 +1,12 @@
 import styles from './CartUIStyles.module.css'
-import checkMarkIcon from '../../../assets/icons/ui/CheckMarkAccordeonIcon.svg'
 import { useAppDispatch } from '../../../store/hooks'
-import { toggleItemSelection } from '../../../features/cart/cartSlice'
+import { removeItem } from '../../../features/cart/cartSlice'
+import TrashIcon from '../../../assets/icons/ui/TrashIcon.svg'
+import { removeSelectionById } from '../../../features/subscriptions/subscriptionsSlice'
 
 interface CartItemProps {
     id: string
+    subscriptionId: string
     name: string
     uid: string
     duration: string
@@ -14,35 +16,21 @@ interface CartItemProps {
 
 const CartItem = ({
     id,
+    subscriptionId,
     name,
     uid,
     duration,
     price,
-    isSelected,
 }: CartItemProps) => {
     const dispatch = useAppDispatch()
 
-    const handleChange = () => {
-        dispatch(toggleItemSelection(id))
+    const handleRemoveItem = () => {
+        dispatch(removeSelectionById(subscriptionId))
+        dispatch(removeItem(id))
     }
 
     return (
         <div className={styles.itemRow}>
-            <label className={styles.checkboxWrapper}>
-                <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={handleChange}
-                />
-                {isSelected ? (
-                    <span className={styles.checkbox}>
-                        <img src={checkMarkIcon} alt="" />
-                    </span>
-                ) : (
-                    <span className={styles.checkbox} />
-                )}
-            </label>
-
             <div className={styles.itemInfo}>
                 <div className={styles.itemName}>{name}</div>
                 <div className={styles.itemUid}>UID: {uid}</div>
@@ -51,6 +39,10 @@ const CartItem = ({
             <div className={styles.itemRight}>
                 <div className={styles.itemDuration}>{duration}</div>
                 <div className={styles.itemPrice}>{price}</div>
+            </div>
+
+            <div className="">
+                <img onClick={handleRemoveItem} src={TrashIcon} alt="" />
             </div>
         </div>
     )
