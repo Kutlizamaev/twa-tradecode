@@ -45,6 +45,12 @@ const PaymentPage = () => {
         return recipientTrc20Address
     }
 
+    const handleCopy = (address: string) => {
+        navigator.clipboard
+            ?.writeText(address.replace(/\s/g, ''))
+            .catch(() => {})
+    }
+
     const noticeText =
         method === 'UID'
             ? 'Переводите только со своего UID'
@@ -92,7 +98,13 @@ const PaymentPage = () => {
                                             className={styles.iconButton}
                                             type="button"
                                         >
-                                            <img src={CopyIcon} alt="" />
+                                            <img
+                                                onClick={() =>
+                                                    handleCopy(recipientUid)
+                                                }
+                                                src={CopyIcon}
+                                                alt=""
+                                            />
                                         </button>
                                     </div>
 
@@ -109,7 +121,13 @@ const PaymentPage = () => {
                                             className={styles.iconButton}
                                             type="button"
                                         >
-                                            <img src={CopyIcon} alt="" />
+                                            <img
+                                                onClick={() => {
+                                                    handleCopy(senderUid)
+                                                }}
+                                                src={CopyIcon}
+                                                alt=""
+                                            />
                                         </button>
                                     </div>
                                 </>
@@ -130,7 +148,15 @@ const PaymentPage = () => {
                                             className={styles.iconButton}
                                             type="button"
                                         >
-                                            <img src={CopyIcon} alt="" />
+                                            <img
+                                                onClick={() => {
+                                                    handleCopy(
+                                                        getRecipientValue()
+                                                    )
+                                                }}
+                                                src={CopyIcon}
+                                                alt=""
+                                            />
                                         </button>
                                     </div>
                                 </>
