@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './SubscriptionUIStyles.module.css'
 
 import DropdownIcon from '../../../assets/icons/ui/DropdownIcon.svg'
@@ -18,26 +18,50 @@ const SubscriptionAccordeon = ({ name }: AccordeonProps) => {
     const [isClosing, setIsClosing] = useState(false)
     const [isHeaderOpening, setIsHeaderOpening] = useState(false)
 
+    const bodyTimeoutRef = useRef<number | null>(null)
+    const headerTimeoutRef = useRef<number | null>(null)
+
+    const clearTimers = () => {
+        if (bodyTimeoutRef.current !== null) {
+            window.clearTimeout(bodyTimeoutRef.current)
+            bodyTimeoutRef.current = null
+        }
+        if (headerTimeoutRef.current !== null) {
+            window.clearTimeout(headerTimeoutRef.current)
+            headerTimeoutRef.current = null
+        }
+    }
+
+    useEffect(() => {
+        return () => {
+            clearTimers()
+        }
+    }, [])
+
     const handleToggle = () => {
+        clearTimers()
+
         if (isOpen) {
+            // закрытие
             setIsClosing(true)
             setIsOpen(false)
 
-            setTimeout(() => {
+            bodyTimeoutRef.current = window.setTimeout(() => {
                 setIsClosing(false)
 
                 setIsHeaderClosing(true)
                 setIsHeaderOpen(false)
 
-                setTimeout(() => {
+                headerTimeoutRef.current = window.setTimeout(() => {
                     setIsHeaderClosing(false)
                 }, HEADER_RADIUS_DURATION)
             }, BODY_CLOSE_DURATION)
         } else {
+            // открытие
             setIsHeaderOpening(true)
             setIsHeaderOpen(true)
 
-            setTimeout(() => {
+            headerTimeoutRef.current = window.setTimeout(() => {
                 setIsHeaderOpening(false)
 
                 setIsOpen(true)
