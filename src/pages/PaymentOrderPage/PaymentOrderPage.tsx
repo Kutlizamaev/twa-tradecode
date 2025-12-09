@@ -14,7 +14,7 @@ const PaymentOrderPage = () => {
     const [method, setMethod] = useState<PaymentMethod>('ACCOUNT')
 
     const handleTopUpClick = () => {
-        navigate('/top-up')
+        navigate('/topup')
     }
 
     const handlePay = () => {
