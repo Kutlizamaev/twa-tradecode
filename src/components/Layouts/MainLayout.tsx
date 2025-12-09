@@ -24,6 +24,12 @@ const MainLayout = () => {
     const isTopUpPage = location.pathname === '/topup'
     const isPaymentPage = location.pathname === '/payment'
 
+    const pathname = location.pathname
+    const orderMatch = pathname.match(
+        /^\/order\/(bybit-eye|pdf-checker|htx-eye)$/
+    )
+    const isOrderPage = Boolean(orderMatch)
+
     const dispatch = useAppDispatch()
 
     const { selectedUsers: cartUsers, totalPrice: cartTotal } =
@@ -78,7 +84,7 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    {!isTopUpPage && !isPaymentPage && (
+                    {!isOrderPage && !isTopUpPage && !isPaymentPage && (
                         <BottomNav
                             cartBarIsVisible={
                                 isSubscriptionsPage &&
@@ -88,6 +94,7 @@ const MainLayout = () => {
                         />
                     )}
                 </div>
+
                 <PaymentResultModal
                     isOpen={isPaymentSuccess}
                     onClose={handleClosePaymentModal}

@@ -38,3 +38,11 @@
     flex-direction: column;
     z-index: 50;
 }
+
+.fullWidthBar {
+    width: 100%;
+}
+
+.navWrapper {
+    padding: 0 4px;
+}

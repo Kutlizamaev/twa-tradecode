@@ -4,6 +4,7 @@ import PDFCheckerLogo from '../../../assets/icons/logo/PDFCheckerLogoIcon.svg'
 import HTXEyeLogo from '../../../assets/icons/logo/HTXEyeLogoIcon.svg'
 
 import ServiceQuestionIcon from '../../../assets/icons/ui/ServiceQuestionIcon.svg?react'
+import { useNavigate } from 'react-router-dom'
 
 type ServiceCardProps = {
     name: string
@@ -11,6 +12,7 @@ type ServiceCardProps = {
 
 const services = [
     {
+        serviceId: 'bybit-eye',
         name: 'ByBit Eye',
         description: 'Аналитика и контроль сделок на бирже ByBit',
         buttonText: 'Добавить доступы',
@@ -18,6 +20,7 @@ const services = [
         telegramPostLink: 'https://t.me/Trade_Code/45',
     },
     {
+        serviceId: 'pdf-checker',
         name: 'PDF Checker',
         description:
             'Проверка документов и писем на подлинность и корректность',
@@ -26,6 +29,7 @@ const services = [
         telegramPostLink: 'https://t.me/Trade_Code/4',
     },
     {
+        serviceId: 'htx-eye',
         name: 'HTX Eye',
         description: 'Аналитика и контроль сделок на бирже HTX',
         buttonText: 'Добавить доступы',
@@ -40,6 +44,7 @@ const ended = 12
 const notActivated = 34
 
 const ServiceCard = ({ name }: ServiceCardProps) => {
+    const navigate = useNavigate()
     const currentServiceCard = services.find((service) => service.name === name)
 
     const openTelegramPost = (link: string) => {
@@ -48,6 +53,11 @@ const ServiceCard = ({ name }: ServiceCardProps) => {
         } else {
             window.open(link, '_blank')
         }
+    }
+
+    const handleOpenOrderPage = () => {
+        if (!currentServiceCard) return
+        navigate(`/order/${currentServiceCard.serviceId}`)
     }
 
     return (
@@ -155,7 +165,10 @@ const ServiceCard = ({ name }: ServiceCardProps) => {
                 </div>
             </div>
 
-            <button className={styles.serviceButton}>
+            <button
+                onClick={handleOpenOrderPage}
+                className={styles.serviceButton}
+            >
                 {currentServiceCard?.buttonText}
             </button>
         </article>

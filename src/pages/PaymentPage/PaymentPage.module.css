@@ -254,11 +254,10 @@
     background: #00f091;
 
     font-family: 'TikTok Sans';
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: -2%;
-    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
 
     pointer-events: auto;
 }
