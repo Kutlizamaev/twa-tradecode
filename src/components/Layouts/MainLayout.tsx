@@ -56,7 +56,7 @@ const MainLayout = () => {
     }
 
     const handlePay = () => {
-        navigate('/payment')
+        navigate('/payment-order')
     }
 
     const handleClosePaymentModal = () => {
