@@ -14,6 +14,8 @@ import { HtxOrderForm } from './Forms/HtxOrderForm'
 
 import PageHeader from '../../components/UI/PageHeader'
 import type { ServiceCode } from '../../api/types'
+import { useAppDispatch } from '../../store/hooks'
+import { setPaymentAmount } from '../../features/payment/paymentSlice'
 
 type ServiceFormProps = {
     onTotalChange: (total: number | string) => void
@@ -54,6 +56,7 @@ interface ServiceOrderPageProps {
 }
 
 export const ServiceOrderPage = ({ serviceId }: ServiceOrderPageProps) => {
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const config = SERVICE_CONFIG[serviceId]
 
@@ -64,7 +67,12 @@ export const ServiceOrderPage = ({ serviceId }: ServiceOrderPageProps) => {
     const formattedTotal = typeof total === 'number' ? total.toFixed(2) : total
 
     const handleSelectUsers = () => {
-        navigate(`/users/select/${serviceId}`)
+        if (typeof total === 'number' && total > 0) {
+            dispatch(setPaymentAmount(total))
+            navigate(`/users/select/${serviceId}`)
+        } else if (total === 'Бесплатно') {
+            navigate(`/users/select/${serviceId}`)
+        }
     }
 
     return (

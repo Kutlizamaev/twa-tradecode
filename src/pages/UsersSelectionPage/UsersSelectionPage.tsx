@@ -124,7 +124,7 @@ export const UsersSelectionPage = () => {
     }
 
     const handlePayNow = () => {
-        navigate('/payment')
+        navigate('/payment-order')
     }
 
     const handleAddToCart = () => {
@@ -385,13 +385,15 @@ export const UsersSelectionPage = () => {
 
                 <section className={styles.bottomDock}>
                     <div className={styles.bottomInner}>
-                        <button
-                            type="button"
-                            className={styles.primaryButton}
-                            onClick={handlePayNow}
-                        >
-                            Оплатить сразу
-                        </button>
+                        {!isHtx && (
+                            <button
+                                type="button"
+                                className={styles.primaryButton}
+                                onClick={handlePayNow}
+                            >
+                                Оплатить сразу
+                            </button>
+                        )}
 
                         <button
                             type="button"

@@ -23,6 +23,7 @@ const MainLayout = () => {
     const isCartPage = location.pathname === '/cart'
     const isTopUpPage = location.pathname === '/topup'
     const isPaymentPage = location.pathname === '/payment'
+    const isPaymentOrderPage = location.pathname === '/payment-order'
 
     const pathname = location.pathname
     const orderMatch = pathname.match(
@@ -87,7 +88,8 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    {!isUserSelectionPage &&
+                    {!isPaymentOrderPage &&
+                        !isUserSelectionPage &&
                         !isOrderPage &&
                         !isTopUpPage &&
                         !isPaymentPage && (

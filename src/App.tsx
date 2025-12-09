@@ -8,6 +8,7 @@ import TopUpPage from './pages/TopUpPage/TopUpPage'
 import PaymentPage from './pages/PaymentPage/PaymentPage'
 import { ServiceOrderPage } from './pages/ServiceOrderPage/ServiceOrderPage'
 import { UsersSelectionPage } from './pages/UsersSelectionPage/UsersSelectionPage'
+import PaymentOrderPage from './pages/PaymentOrderPage/PaymentOrderPage'
 
 const App = () => {
     return (
@@ -24,6 +25,10 @@ const App = () => {
                     <Route path="/topup" element={<TopUpPage />} />
 
                     <Route path="/payment" element={<PaymentPage />} />
+                    <Route
+                        path="/payment-order"
+                        element={<PaymentOrderPage />}
+                    />
 
                     <Route
                         path="/order/bybit-eye"
