@@ -1,8 +1,10 @@
+// src/pages/CartPage/CartPage.tsx
 import styles from './CartPage.module.css'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
     clearCartByServiceName,
     selectCartItems,
+    type BybitUserForCart,
 } from '../../features/cart/cartSlice'
 
 import CartAccordeon from '../../components/UI/CartPageUI/CartAccordeon'
@@ -11,6 +13,10 @@ import CartItem from '../../components/UI/CartPageUI/CartItem'
 import EmptyCartIcon from '../../assets/icons/ui/EmptyCartIcon.svg'
 import { useNavigate } from 'react-router-dom'
 import { clearSelectionByServiceName } from '../../features/subscriptions/subscriptionsSlice'
+
+// цены как в BybitOrderForm
+const BYBIT_WEEK_PRICE = 10
+const BYBIT_MONTH_PRICE = 30
 
 const CartPage = () => {
     const items = useAppSelector(selectCartItems)
@@ -73,32 +79,139 @@ const CartPage = () => {
                     </div>
                 )}
 
-                {groups.map((group) => (
-                    <CartAccordeon
-                        key={group.serviceId}
-                        title={group.serviceName}
-                        total={`$${group.totalPrice}`}
-                        onClear={() => handleClearService(group.serviceName)}
-                    >
-                        {group.items.map((item) => {
+                {groups.map((group) => {
+                    const renderedItems = group.items.flatMap((item) => {
+                        // 1️⃣ Подписки — одна строка на пользователя
+                        if (item.kind === 'subscription') {
                             const durationLabel =
                                 item.plan === 7 ? '7 дней' : '30 дней'
 
-                            return (
+                            return [
                                 <CartItem
                                     key={item.id}
                                     id={item.id}
-                                    subscriptionId={item.subscriptionId}
-                                    name={item.userName}
-                                    uid={item.uid}
+                                    subscriptionId={item.subscriptionId ?? ''}
+                                    name={item.userName ?? ''}
+                                    uid={item.uid ?? ''}
                                     duration={durationLabel}
-                                    price={`$${item.price}`}
+                                    price={`${item.price} USDT`}
                                     isSelected={item.isSelected}
+                                />,
+                            ]
+                        }
+
+                        // 2️⃣ Сервисные заказы
+                        const usersCount = item.usersCount ?? 0
+                        const totalPrice = item.price
+
+                        // PDF Checker: usersData = string[] (теги)
+                        if (item.serviceId === 'PDF_CHECKER' && item.pdfPlan) {
+                            const tags = Array.isArray(item.usersData)
+                                ? (item.usersData as unknown[])
+                                : []
+
+                            const perUserPrice =
+                                usersCount > 0
+                                    ? totalPrice / usersCount
+                                    : totalPrice
+
+                            return tags.map((tag, index) => (
+                                <CartItem
+                                    key={`${item.id}-pdf-${index}`}
+                                    id={item.id}
+                                    subscriptionId=""
+                                    name={String(tag)} // "PDF Checker"
+                                    uid={''}
+                                    duration={item.pdfPlan?.label ?? ''}
+                                    price={`${perUserPrice} USDT`}
+                                    isSelected={item.isSelected}
+                                    uidLabel="Telegram ID"
                                 />
-                            )
-                        })}
-                    </CartAccordeon>
-                ))}
+                            ))
+                        }
+
+                        // BYBIT_EYE: usersData = BybitUserForCart[]
+                        if (item.serviceId === 'BYBIT_EYE') {
+                            const users =
+                                Array.isArray(item.usersData) &&
+                                item.usersData.length > 0
+                                    ? (item.usersData as BybitUserForCart[])
+                                    : []
+
+                            return users.map((user, index) => {
+                                const durationLabel =
+                                    user.accessPeriod === '7_DAYS'
+                                        ? '7 дней'
+                                        : '30 дней'
+
+                                const userPrice =
+                                    user.accessPeriod === '7_DAYS'
+                                        ? BYBIT_WEEK_PRICE
+                                        : BYBIT_MONTH_PRICE
+
+                                return (
+                                    <CartItem
+                                        key={`${item.id}-bybit-${index}`}
+                                        id={item.id}
+                                        subscriptionId=""
+                                        name={
+                                            user.p2pName ||
+                                            `Пользователь ${index + 1}`
+                                        }
+                                        uid={user.uid}
+                                        duration={durationLabel}
+                                        price={`${userPrice} USDT`}
+                                        isSelected={item.isSelected}
+                                    />
+                                )
+                            })
+                        }
+
+                        // HTX_EYE (и прочие сервисы по аналогии):
+                        // usersData = массив объектов { uid, p2pName, password }
+                        const users =
+                            Array.isArray(item.usersData) &&
+                            item.usersData.length > 0
+                                ? (item.usersData as {
+                                      uid?: string
+                                      p2pName?: string
+                                      password?: string
+                                  }[])
+                                : []
+
+                        // пока цена за HTX = 0, как ты и хотел
+                        const userPrice =
+                            usersCount > 0 ? totalPrice / usersCount : 0
+
+                        return users.map((user, index) => (
+                            <CartItem
+                                key={`${item.id}-htx-${index}`}
+                                id={item.id}
+                                subscriptionId=""
+                                name={
+                                    user.p2pName || `Пользователь ${index + 1}`
+                                }
+                                uid={user.uid ?? ''}
+                                duration="Заказ услуги"
+                                price={`${userPrice} USDT`}
+                                isSelected={item.isSelected}
+                            />
+                        ))
+                    })
+
+                    return (
+                        <CartAccordeon
+                            key={group.serviceId}
+                            title={group.serviceName}
+                            total={`${group.totalPrice} USDT`}
+                            onClear={() =>
+                                handleClearService(group.serviceName)
+                            }
+                        >
+                            {renderedItems}
+                        </CartAccordeon>
+                    )
+                })}
             </div>
         </div>
     )

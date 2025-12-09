@@ -4,12 +4,13 @@ import {
     type PayloadAction,
 } from '@reduxjs/toolkit'
 import type { RootState } from '../../store/store'
+import type { ServiceCode } from '../../api/types'
 
 export type PlanType = 7 | 30
 
 export type SelectedForCartItem = {
     subscriptionId: string
-    serviceId: string
+    serviceId: ServiceCode
     serviceName: string
     userName: string
     uid: string

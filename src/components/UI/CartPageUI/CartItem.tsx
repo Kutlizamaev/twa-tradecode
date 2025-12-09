@@ -12,6 +12,7 @@ interface CartItemProps {
     duration: string
     price: string
     isSelected: boolean
+    uidLabel?: string
 }
 
 const CartItem = ({
@@ -21,11 +22,14 @@ const CartItem = ({
     uid,
     duration,
     price,
+    uidLabel = 'UID',
 }: CartItemProps) => {
     const dispatch = useAppDispatch()
 
     const handleRemoveItem = () => {
-        dispatch(removeSelectionById(subscriptionId))
+        if (subscriptionId) {
+            dispatch(removeSelectionById(subscriptionId))
+        }
         dispatch(removeItem(id))
     }
 
@@ -33,7 +37,9 @@ const CartItem = ({
         <div className={styles.itemRow}>
             <div className={styles.itemInfo}>
                 <div className={styles.itemName}>{name}</div>
-                <div className={styles.itemUid}>UID: {uid}</div>
+                <div className={styles.itemUid}>
+                    {uidLabel}: {uid}
+                </div>
             </div>
 
             <div className={styles.itemRight}>

@@ -1,0 +1,186 @@
+.page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* верхний зелёный блок */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(
+        520.42% 147.82% at 50% -47.82%,
+        #002a07 0%,
+        #00f091 100%
+    );
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+.headerTitle {
+    padding: 0 16px 32px 16px;
+}
+
+.title {
+    font-family: TikTok Sans;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 80%;
+    font-variation-settings: 'wdth' 120;
+    color: #fff;
+}
+
+.subtitle {
+    margin-top: 12px;
+    font-family: 'Martian Grotesk';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.44px;
+    color: #fff;
+}
+
+/* контент со скроллом */
+
+.content {
+    flex: 1;
+    padding: 16px;
+    padding-bottom: calc(150px + env(safe-area-inset-bottom, 16px));
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* карточка пользователя */
+
+.userCard {
+    background: #cdf9e7;
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.userTitle {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 80%;
+    letter-spacing: -2%;
+    font-variation-settings: 'wdth' 120;
+}
+
+.userFields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fieldLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    border-radius: 12px;
+    background: #fff;
+}
+
+.fieldLabel span {
+    font-family: 'TikTok Sans';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: -2%;
+    padding: 16px 16px 0 16px;
+}
+
+.textInput {
+    border-radius: 12px;
+    border: none;
+    padding: 10px 12px;
+    background: #fff;
+    font-size: 14px;
+    font-family: 'Martian Grotesk';
+    outline: none;
+    margin: 0 4px 8px 4px;
+}
+
+.pdfTextInput {
+    border-radius: 12px;
+    border: none;
+    padding: 16px 24px;
+    background: #fff;
+    font-size: 14px;
+    font-family: 'Martian Grotesk';
+    outline: none;
+}
+
+/* подсказка, если аккаунтов 0 */
+
+.emptyHint {
+    margin: 0;
+    font-size: 14px;
+    color: #ecfdf5;
+}
+
+/* нижняя панель */
+
+.bottomDock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottomInner {
+    background: #cdf9e7;
+    border-radius: 32px 32px 0 0;
+    padding: 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.primaryButton {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #00f091;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+
+    cursor: pointer;
+}
+
+.secondaryButton {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 32px;
+    background: #ffffff;
+
+    font-family: 'TikTok Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+
+    cursor: pointer;
+}

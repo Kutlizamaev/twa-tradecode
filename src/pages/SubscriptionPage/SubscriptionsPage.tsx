@@ -17,7 +17,7 @@ const SubscriptionsPage = () => {
                 </div>
 
                 <div className={styles.content}>
-                    <SubscriptionAccordeon name="Bybit Eye" />
+                    <SubscriptionAccordeon name="ByBit Eye" />
                     <SubscriptionAccordeon name="PDF Checker" />
                 </div>
             </div>

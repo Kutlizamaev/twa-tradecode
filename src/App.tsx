@@ -7,6 +7,7 @@ import CartPage from './pages/CartPage/CartPage'
 import TopUpPage from './pages/TopUpPage/TopUpPage'
 import PaymentPage from './pages/PaymentPage/PaymentPage'
 import { ServiceOrderPage } from './pages/ServiceOrderPage/ServiceOrderPage'
+import { UsersSelectionPage } from './pages/UsersSelectionPage/UsersSelectionPage'
 
 const App = () => {
     return (
@@ -35,6 +36,11 @@ const App = () => {
                     <Route
                         path="/order/htx-eye"
                         element={<ServiceOrderPage serviceId="HTX_EYE" />}
+                    />
+
+                    <Route
+                        path="/users/select/:serviceId"
+                        element={<UsersSelectionPage />}
                     />
 
                     <Route path="*" element={<Navigate to="/" replace />} />

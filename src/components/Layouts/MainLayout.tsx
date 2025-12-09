@@ -30,6 +30,9 @@ const MainLayout = () => {
     )
     const isOrderPage = Boolean(orderMatch)
 
+    const userSelectionMatch = pathname.match(/^\/users\/select/)
+    const isUserSelectionPage = Boolean(userSelectionMatch)
+
     const dispatch = useAppDispatch()
 
     const { selectedUsers: cartUsers, totalPrice: cartTotal } =
@@ -84,15 +87,18 @@ const MainLayout = () => {
                         onPrimaryClick={handlePay}
                     />
 
-                    {!isOrderPage && !isTopUpPage && !isPaymentPage && (
-                        <BottomNav
-                            cartBarIsVisible={
-                                isSubscriptionsPage &&
-                                hasSelectionOnSubscriptions
-                            }
-                            isCartPage={isCartPage}
-                        />
-                    )}
+                    {!isUserSelectionPage &&
+                        !isOrderPage &&
+                        !isTopUpPage &&
+                        !isPaymentPage && (
+                            <BottomNav
+                                cartBarIsVisible={
+                                    isSubscriptionsPage &&
+                                    hasSelectionOnSubscriptions
+                                }
+                                isCartPage={isCartPage}
+                            />
+                        )}
                 </div>
 
                 <PaymentResultModal

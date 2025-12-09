@@ -64,7 +64,7 @@ export const ServiceOrderPage = ({ serviceId }: ServiceOrderPageProps) => {
     const formattedTotal = typeof total === 'number' ? total.toFixed(2) : total
 
     const handleSelectUsers = () => {
-        navigate('/users/select')
+        navigate(`/users/select/${serviceId}`)
     }
 
     return (

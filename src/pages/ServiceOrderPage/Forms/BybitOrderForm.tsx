@@ -29,14 +29,12 @@ export const BybitOrderForm = ({ onTotalChange }: BybitOrderFormProps) => {
     }, [weekCount, monthCount, onTotalChange, dispatch])
 
     const incWeek = () => {
-        console.log('incWeek') // временно для проверки
         setWeekCount((prev) => prev + 1)
     }
 
     const decWeek = () => setWeekCount((prev) => Math.max(0, prev - 1))
 
     const incMonth = () => {
-        console.log('incMonth') // временно
         setMonthCount((prev) => prev + 1)
     }
 
