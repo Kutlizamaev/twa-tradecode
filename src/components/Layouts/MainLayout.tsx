@@ -13,6 +13,7 @@ import PaymentResultModal from '../UI/PaymentResultModal'
 import {
     resetPayment,
     selectPaymentStatus,
+    setPaymentAmount,
 } from '../../features/payment/paymentSlice'
 
 const MainLayout = () => {
@@ -56,6 +57,7 @@ const MainLayout = () => {
     }
 
     const handlePay = () => {
+        dispatch(setPaymentAmount(cartTotal))
         navigate('/payment-order')
     }
 
